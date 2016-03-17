@@ -50,7 +50,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('index', function () {
-    var target = gulp.src('./open.html');
+    var target = gulp.src('./tpl-redpacket/open.html');
     // It's not necessary to read the files (will speed up things), we're only after their paths:
     var sources = gulp.src(['./dist/js/all.js', './dist/css/all.css'], {read: false});
 
