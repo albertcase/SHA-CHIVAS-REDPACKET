@@ -124,10 +124,10 @@ body{
   left: 0;
   top: 0;
 }
-.logo{
-  @include size(2.75rem,1.02rem);
-  margin: 0.45rem auto 0rem;
-}
+//.logo{
+//  @include size(2.75rem,1.02rem);
+//  margin: 0.45rem auto 0rem;
+//}
 
 //for pin
 .pin {
@@ -153,18 +153,6 @@ body{
     //margin: 125px auto 0;
     width: 100%;
   }
-  &.pin-2{
-    background: #f3f3f3;
-  }
-  &.pin-3{
-    background: #edebee;
-  }
-  &.pin-4{
-    background: #f1f2f2;
-  }
-  &.pin-6{
-    background: #f9f8f9;
-  }
 }
 
 .buttons{
@@ -184,18 +172,167 @@ body{
 
 //for .pin-1
 .pin-1{
-
+  background: url("../images/bg-1.png") no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  .p1-inner{
+    @include size(6.08rem,8.33rem);
+    background: url("../images/redpacket.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    @include transform(translate(-50%,-50%));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  .logo{
+    @include size(2.88rem,0.63rem);
+    margin: 0.6rem auto 0.4rem;
+  }
+  .btn-open{
+    margin: 0 auto 0.5rem;
+    @include size(2.05rem,2.09rem);
+  }
+  .p1-t1{
+    margin: 0 auto;
+    @include size(2.76rem,0.89rem);
+  }
 
 }
 
 //for .pin-2
 .pin-2{
+  background:url("../images/p2-bg.png") no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  .logo{
+    @include size(2.58rem,0.54rem);
+    margin: 1.4rem auto 0.8rem;
+  }
+  .btn-submit{
+    position: absolute;
+    bottom: 0.9rem;
+    left: 52%;
+    margin-left: -2.94rem;
+    @include size(5.88rem,1.11rem);
+  }
+  .privacy-term{
+    position: absolute;
+    bottom: 0.8rem;
+    left: 50%;
+    margin-left: -1.46rem;
+    @include size(2.82rem,0.35rem);
+  }
+  .term-pop{
+    @include size(6.2rem,8.5rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+    background: rgba(0,0,0,0.9);
+    .term-text{
+      @include size(4.19rem,1.91rem);
+      margin: 2.4rem auto;
+    }
+    .btn-close{
+      position: relative;
+      @include size(0.6rem,0.6rem);
+      margin: 0rem auto 0rem;
+      left: -0.1rem;
+      &:after{
+        content: '';
+        display: block;
+        width: 0.8rem;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #c0a176;
+        @include transform(rotate(45deg));
+      }
+      &:before{
+        content: '';
+        display: block;
+        width: 0.8rem;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #c0a176;
+        @include transform(rotate(-45deg));
+      }
 
+    }
+    .tips{
+      @include size(1.91rem,0.29rem);
+      margin: 0.2rem auto;
+    }
+  }
 }
+
+input[type="text"]{
+  border: none;
+  background: url("../images/input-border.png") bottom center no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+.form-validate{
+  position: relative;
+  width: 6.35rem;
+  margin: 0 auto;
+  .input-box{
+    input[type="text"]{
+      @include size(6.35rem,0.67rem);
+      text-align: center;
+      font-size: 0.3rem;
+      color: #efce92;
+    }
+  }
+  .btn-getkeycode{
+    @include size(1.68rem,0.42rem);
+    position: absolute;
+    bottom: 0.1rem;
+    right: 0.5rem;
+    background: url("../images/btn-getkeycode.png") bottom center no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    border: none;
+  }
+}
+::-webkit-input-placeholder{
+  color: rgba(239,206,146,0.6);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(239,206,146,0.6);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: rgba(239,206,146,0.6);
+}
+
+:-ms-input-placeholder {
+  color: rgba(239,206,146,0.6);
+}
+
 
 
 //for pin-3
 .pin-3{
+  background:url("../images/p3-bg.png") no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  .logo{
+    @include size(2.01rem,2.05rem);
+    margin: 2.2rem auto 0.8rem;
+  }
+  .p3-t1{
+    @include size(3.52rem,2.24rem);
+    margin: 0 auto 2.5rem;
+  }
+  .btn{
+    @include size(2.52rem,0.6rem);
+    margin: 0 auto 0.2rem;
+  }
 }
 
 
@@ -257,6 +394,48 @@ body{
   }
 }
 
+//for tips-pop
+.popup{
+  position: absolute;
+  z-index: 100;
+  background: rgba(0,0,0,0.85);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.tips-pop{
+  .inner{
+    position: absolute;
+    @include size(3.96rem,1.71rem);
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+  .tips-1{
+    @include size(4rem,0.75rem);
+    background: url("../images/tips.png") no-repeat;
+    background-size: 100%;
+  }
+  .btn-tips{
+    @include size(1.8rem,0.5rem);
+    float: left;
+    display: inline-block;
+    margin-left: 0.1rem;
+    background: url("../images/tips.png") no-repeat;
+    background-size: 200%;
+    background-position: 0% 100%;
+    &.btn-tips-no{
+      background-position: 100% 100%;
+    }
+  }
+  .tips-text{
+    @include size(1.91rem,0.29rem);
+    position: absolute;
+    left: 0.2rem;
+    bottom: 0.2rem;
+  }
+}
 
 //test
 #__bs_notify__{
