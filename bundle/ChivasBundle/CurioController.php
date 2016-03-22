@@ -29,7 +29,7 @@ class CurioController extends Controller {
 		$code = $request->query->get('code');
 		$requestUrl = 'http://curio.im/oapi/access_token?client_id='. $client_id. '&client_secret='. $client_secret.
 			'&redirect_uri='. $oauth_url. '&grant_type=authorization_code&code='. $code;
-		$result = file_get_contents($requestUrl);
+		echo $result = file_get_contents($requestUrl);
 		$databaseAPI = new \Lib\DatabaseAPI();
 		var_dump($databaseAPI->insertCurio($result));
 		exit;
