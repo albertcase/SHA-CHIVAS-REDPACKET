@@ -1,5 +1,5 @@
 <?php
-namespace WechatBundle;
+namespace ChivasBundle;
 
 use Core\Controller;
 

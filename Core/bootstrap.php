@@ -25,20 +25,20 @@ class Core {
 		if(isset($routers[$current_router])) {
 			$callback = $routers[$current_router];
 			$class = $callback[0] . 'Controller';
-			$method = $callback[1];
-			$data = call_user_func_array(array(new $class, $method), array());
-			$response = new \Core\Response($data);
+			$method = $callback[1] . 'Action';
+			$response = call_user_func_array(array(new $class, $method), array());
 			$response->send();
+			exit;
 		}
 		foreach($routers as $router => $callback) {
 			$pattern = '/' . preg_replace(array('/\//', '/%/'), array('\/', '(.*)'), $router) . '/';
 			if(preg_match($pattern, $current_router, $matches)) {
 				unset($matches[0]);
 				$class = $callback[0] . 'Controller';
-				$method = $callback[1];
-				$data = call_user_func_array(array(new $class, $method), $matches);
-				$response = new \Core\Response($data);
+				$method = $callback[1] . 'Action';
+				$response = call_user_func_array(array(new $class, $method), $matches);
 				$response->send();
+				exit;
 			}			
 		}
 	}
