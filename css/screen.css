@@ -525,6 +525,67 @@ input[type="text"] {
   margin-left: -0.3rem;
 }
 
+.pin-4 {
+  background: url("../images/coupon-bg.png") no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.pin-4 .logo {
+  margin: 1rem auto;
+  width: 2.88rem;
+  height: 0.6rem;
+}
+.pin-4 .tmall {
+  margin: 0rem auto 0.4rem;
+  width: 6.89rem;
+  height: 4.43rem;
+}
+.pin-4 .weixin {
+  margin: 0rem auto;
+  width: 6.89rem;
+  height: 4.51rem;
+}
+
+.pin-5 {
+  background: #531320 url("../images/c-bg2.png") no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+.pin-5 .logo {
+  margin: 1.1rem auto 0.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.pin-5 .c-text {
+  margin: 0rem auto 0.1rem;
+  width: 5.42rem;
+  height: 0.53rem;
+}
+.pin-5 .c-2 {
+  margin: 0rem auto;
+  width: 7.5rem;
+  height: 3.56rem;
+}
+.pin-5 .tao-wrap {
+  width: 5.9rem;
+  margin: 0 auto;
+}
+.pin-5 .tao-wrap .title {
+  text-align: left;
+  margin-bottom: 0.2rem;
+  width: 1.23rem;
+  height: 0.35rem;
+}
+.pin-5 .tao-wrap .tao-code {
+  position: relative;
+  z-index: 10;
+  font-size: 0.27rem;
+  color: #000;
+  box-sizing: border-box;
+  padding: 0.4rem;
+  background: #e5c69f;
+}
+
 .ajaxpop {
   position: absolute;
   z-index: 10;

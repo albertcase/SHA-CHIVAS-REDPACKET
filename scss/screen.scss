@@ -370,6 +370,63 @@ input[type="text"]{
 }
 
 
+//for pin-4
+.pin-4{
+  background:url("../images/coupon-bg.png") no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  .logo{
+    margin: 1rem auto;
+    @include size(2.88rem,0.6rem);
+  }
+  .tmall{
+    margin: 0rem auto 0.4rem;
+    @include size(6.89rem,4.43rem);
+  }
+  .weixin{
+    margin: 0rem auto;
+    @include size(6.89rem,4.51rem);
+  }
+}
+
+//for pin-5
+.pin-5{
+  background:#531320 url("../images/c-bg2.png") no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  .logo{
+    margin: 1.1rem auto 0.5rem;
+    @include size(1.8rem,1.8rem);
+  }
+  .c-text{
+    margin: 0rem auto 0.1rem;
+    @include size(5.42rem,0.53rem);
+  }
+  .c-2{
+    margin: 0rem auto;
+    @include size(7.5rem,3.56rem);
+  }
+  .tao-wrap{
+    width: 5.9rem;
+    margin: 0 auto;
+    .title{
+      text-align: left;
+      margin-bottom: 0.2rem;
+      @include size(1.23rem,0.35rem);
+    }
+    .tao-code{
+      position: relative;
+      z-index: 10;
+      font-size: 0.27rem;
+      color: #000;
+      box-sizing: border-box;
+      padding: 0.4rem;
+      background: #e5c69f;
+    }
+  }
+}
+
+
 //for ajax loading
 .ajaxpop{
   position: absolute;
