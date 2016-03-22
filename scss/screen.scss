@@ -29,6 +29,36 @@ img{
   margin-left: -2.5rem;
   text-align: left;
 }
+.btn-close{
+  position: relative;
+  @include size(0.6rem,0.6rem);
+  margin: 0rem auto 0rem;
+  left: -0.1rem;
+  &:after{
+    content: '';
+    display: block;
+    width: 0.8rem;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #c0a176;
+    @include transform(rotate(45deg));
+  }
+  &:before{
+    content: '';
+    display: block;
+    width: 0.8rem;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #c0a176;
+    @include transform(rotate(-45deg));
+  }
+
+}
+
 .qrcode{
   @include size(4.51rem,6.46rem);
   margin: 1.6rem auto 0;
@@ -234,35 +264,6 @@ body{
       @include size(4.19rem,1.91rem);
       margin: 2.4rem auto;
     }
-    .btn-close{
-      position: relative;
-      @include size(0.6rem,0.6rem);
-      margin: 0rem auto 0rem;
-      left: -0.1rem;
-      &:after{
-        content: '';
-        display: block;
-        width: 0.8rem;
-        height: 1px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: #c0a176;
-        @include transform(rotate(45deg));
-      }
-      &:before{
-        content: '';
-        display: block;
-        width: 0.8rem;
-        height: 1px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: #c0a176;
-        @include transform(rotate(-45deg));
-      }
-
-    }
     .tips{
       @include size(1.91rem,0.29rem);
       margin: 0.2rem auto;
@@ -332,6 +333,39 @@ input[type="text"]{
   .btn{
     @include size(2.52rem,0.6rem);
     margin: 0 auto 0.2rem;
+  }
+}
+.qrcode-pop{
+  img{
+    @include size(2.38rem,4.02rem);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+}
+.share-pop{
+  .share-1{
+    float: right;
+    @include size(3.67rem,3.4rem);
+  }
+  .share-2{
+    clear: both;
+    @include size(4.38rem,0.78rem);
+    margin: 0 auto ;
+    position: relative;
+    top: -1.6rem;
+  }
+  .p3-3{
+    @include size(4.08rem,4.57rem);
+    margin: 0 auto;
+    position: relative;
+  }
+  .btn-close{
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    margin-left: -0.3rem;
   }
 }
 
