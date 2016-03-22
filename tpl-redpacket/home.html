@@ -15,14 +15,19 @@
     <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/10b39d84-e3e5-4f50-873f-76ec05ed6aaf/wechat.js"></script>
 
     <!-- inject:js -->
+    <script type="text/javascript" src="../js/lib/zepto.min.js"></script>
+    <script type="text/javascript" src="../js/lib/pre-loader.js"></script>
     <script type="text/javascript" src="../js/rem.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/wxshare.js"></script>
+    <script type="text/javascript" src="../js/form.js"></script>
     <!-- endinject -->
 </head>
 <body>
 <div class="preloading hide">
     <div class="inner">
         <div class="l-logo">
-            <img src="loading-logo.png" alt=""/>
+            <img src="../images/logo.png" alt=""/>
         </div>
         <div class="icon-loading">
             <span></span>
@@ -37,7 +42,7 @@
 </div>
 <div class="wrapper">
     <!-- Homepage 送你一个微信红包，打开 -->
-    <section class="pin pin-4">
+    <section class="pin pin-1 current">
        <div class="p1-inner">
             <div class="logo">
                 <img src="../images/logo.png" alt=""/>
@@ -84,7 +89,7 @@
     </section>
 
     <!-- 验证成功后看到获得金额 -->
-    <section class="pin pin-3 current">
+    <section class="pin pin-3">
         <div class="logo">
             <img src="../images/p3-logo.png" alt=""/>
         </div>
@@ -100,7 +105,7 @@
         <div class="qrcode-pop popup hide">
             <img src="../images/p4-qrcode.png" alt=""/>
         </div>
-        <div class="share-pop popup">
+        <div class="share-pop popup hide">
             <div class="share-1">
                 <img src="../images/share-overlay.png" alt=""/>
             </div>
@@ -112,12 +117,6 @@
             </div>
             <div class="btn-close"></div>
         </div>
-    </section>
-
-
-    <!-- 活动细则-->
-    <section class="pin pin-7">
-
     </section>
 </div>
 <div class="popup tips-pop hide">
