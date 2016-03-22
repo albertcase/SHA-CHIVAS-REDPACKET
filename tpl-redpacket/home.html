@@ -18,13 +18,14 @@
     <script type="text/javascript" src="../js/lib/zepto.min.js"></script>
     <script type="text/javascript" src="../js/lib/pre-loader.js"></script>
     <script type="text/javascript" src="../js/rem.js"></script>
+    <script type="text/javascript" src="../js/controller.js"></script>
     <script type="text/javascript" src="../js/common.js"></script>
     <script type="text/javascript" src="../js/wxshare.js"></script>
     <script type="text/javascript" src="../js/form.js"></script>
     <!-- endinject -->
 </head>
 <body>
-<div class="preloading hide">
+<div class="preloading">
     <div class="inner">
         <div class="l-logo">
             <img src="../images/logo.png" alt=""/>
@@ -42,15 +43,15 @@
 </div>
 <div class="wrapper">
     <!-- Homepage 送你一个微信红包，打开 -->
-    <section class="pin pin-1 current">
+    <section class="pin pin-1">
        <div class="p1-inner">
             <div class="logo">
                 <img src="../images/logo.png" alt=""/>
             </div>
-           <div class="btn-open">
+           <div class="btn-open fade animate delay1">
                <img src="../images/btn-open.png" alt=""/>
            </div>
-           <div class="p1-t1">
+           <div class="p1-t1 fade animate delay2">
                <img src="../images/t1.png" alt=""/>
            </div>
        </div>
@@ -63,12 +64,12 @@
         </div>
         <form action="" class="form-validate">
             <div class="input-box input-box-phone">
-                <input type="text" placeholder="输入手机号"/>
+                <input type="tel" class="input-phone" name="phone" maxlength="11" placeholder="输入手机号"/>
             </div>
-            <div class="input-box input-keycode">
-                <input type="text" placeholder="输入验证码"/>
+            <div class="input-box input-box-keycode">
+                <input type="text" class="input-keycode" placeholder="输入验证码"/>
+                <button class="btn-getkeycode"></button>
             </div>
-            <button class="btn-getkeycode"></button>
         </form>
         <div class="btn-submit">
             <img src="../images/btn-submit.png" alt=""/>
@@ -77,7 +78,7 @@
         <div class="privacy-term">
             <img src="../images/p2-private.png" alt=""/>
         </div>
-        <div class="term-pop">
+        <div class="term-pop hide">
             <div class="term-text">
                 <img src="../images/p2-pop-text.png" alt=""/>
             </div>

@@ -62,6 +62,75 @@ body {
   -webkit-backface-visibility: hidden;
 }
 
+.animate {
+  animation-duration: 600ms;
+  -webkit-animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  animation-play-state: running;
+  -webkit-animation-play-state: running;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.fade {
+  animation-name: fade;
+  -webkit-animation-name: fade;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.delay1 {
+  animation-delay: 800ms;
+  -webkit-animation-delay: 800ms;
+}
+
+.delay2 {
+  animation-delay: 1600ms;
+  -webkit-animation-delay: 1600ms;
+}
+
+.delay3 {
+  animation-delay: 2400ms;
+  -webkit-animation-delay: 2400ms;
+}
+
+.delay4 {
+  animation-delay: 3200ms;
+  -webkit-animation-delay: 3200ms;
+}
+
+.delay5 {
+  animation-delay: 4000ms;
+  -webkit-animation-delay: 4000ms;
+}
+
 strong {
   font-weight: bold;
 }
@@ -79,13 +148,12 @@ img {
 }
 
 .error {
-  position: absolute;
   display: block;
   width: 5rem;
-  bottom: -20px;
-  left: 50%;
-  margin-left: -2.5rem;
-  text-align: left;
+  color: #FFFFFF;
+  font-size: 0.2rem;
+  text-align: center;
+  margin: 0.1rem auto;
 }
 
 .btn-close {
@@ -303,6 +371,8 @@ body {
   -moz-transition: opacity 0.6s;
   -o-transition: opacity 0.6s;
   -webkit-transition: opacity 0.6s;
+  animation-duration: 600ms;
+  -webkit-animation-duration: 600ms;
 }
 .pin.current {
   opacity: 1;
@@ -377,17 +447,17 @@ body {
 }
 .pin-2 .btn-submit {
   position: absolute;
-  bottom: 0.9rem;
+  bottom: 1.4rem;
   left: 52%;
-  margin-left: -2.94rem;
-  width: 5.88rem;
-  height: 1.11rem;
+  margin-left: -1.51rem;
+  width: 3.02rem;
+  height: 0.61rem;
 }
 .pin-2 .privacy-term {
   position: absolute;
   bottom: 0.8rem;
   left: 50%;
-  margin-left: -1.46rem;
+  margin-left: -1.3rem;
   width: 2.82rem;
   height: 0.35rem;
 }
@@ -415,7 +485,8 @@ body {
   margin: 0.2rem auto;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="tel"] {
   border: none;
   background: url("../images/input-border.png") bottom center no-repeat;
   -webkit-background-size: 100%;
@@ -427,7 +498,10 @@ input[type="text"] {
   width: 6.35rem;
   margin: 0 auto;
 }
-.form-validate .input-box input[type="text"] {
+.form-validate .input-box {
+  position: relative;
+}
+.form-validate .input-box input[type="text"], .form-validate .input-box input[type="tel"] {
   width: 6.35rem;
   height: 0.67rem;
   text-align: center;
@@ -438,7 +512,7 @@ input[type="text"] {
   width: 1.68rem;
   height: 0.42rem;
   position: absolute;
-  bottom: 0.1rem;
+  top: 0.15rem;
   right: 0.5rem;
   background: url("../images/btn-getkeycode.png") bottom center no-repeat;
   -webkit-background-size: 100%;
@@ -485,6 +559,12 @@ input[type="text"] {
   margin: 0 auto 0.2rem;
 }
 
+.qrcode-pop.popup {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+}
 .qrcode-pop img {
   width: 2.38rem;
   height: 4.02rem;
@@ -681,7 +761,7 @@ input[type="text"] {
 }
 .popup {
   position: absolute;
-  z-index: 100;
+  z-index: 101;
   background: rgba(0, 0, 0, 0.85);
   width: 100%;
   height: 100%;
