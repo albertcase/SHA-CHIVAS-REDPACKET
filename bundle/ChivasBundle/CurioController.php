@@ -31,7 +31,7 @@ class CurioController extends Controller {
 			'&redirect_uri='. $oauth_url. '&grant_type=authorization_code&code='. $code;
 		echo $result = file_get_contents($requestUrl);
 		$databaseAPI = new \Lib\DatabaseAPI();
-		$databaseAPI->insertCurio($result);
+		var_dump($databaseAPI->insertCurio($result));
 		exit;
 	}
 	
