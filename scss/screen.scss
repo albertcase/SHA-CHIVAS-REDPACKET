@@ -7,6 +7,64 @@
 @import "compass/css3";
 @import "_mixins.scss";
 @import "_animate.scss";
+.animate{
+  animation-duration: 600ms;
+  -webkit-animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(.42, 0, .58, 1);
+  -webkit-animation-timing-function: cubic-bezier(.42, 0, .58, 1);
+  animation-play-state: running;
+  -webkit-animation-play-state: running;
+  animation-fill-mode :both;
+  -webkit-animation-fill-mode :both;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.fade{
+  animation-name: fade;
+  -webkit-animation-name: fade;
+}
+@-webkit-keyframes fade
+{
+  0%   {opacity:0;}
+  100% {opacity:1;}
+}
+@keyframes fade
+{
+  0%   {opacity:0;}
+  100% {opacity:1;}
+}
+.delay1{
+  animation-delay: 800ms;
+  -webkit-animation-delay: 800ms;
+}
+.delay2{
+  animation-delay: 1600ms;
+  -webkit-animation-delay: 1600ms;
+}
+.delay3{
+  animation-delay: 2400ms;
+  -webkit-animation-delay: 2400ms;
+}
+.delay4{
+  animation-delay: 3200ms;
+  -webkit-animation-delay: 3200ms;
+}
+.delay5{
+  animation-delay: 4000ms;
+  -webkit-animation-delay: 4000ms;
+}
 
 strong{
   font-weight: bold;
@@ -21,13 +79,12 @@ img{
   display: none !important;
 }
 .error {
-  position: absolute;
   display: block;
   width: 5rem;
-  bottom: -20px;
-  left: 50%;
-  margin-left: -2.5rem;
-  text-align: left;
+  color: #FFFFFF;
+  font-size: 0.2rem;
+  text-align: center;
+  margin: 0.1rem auto;
 }
 .btn-close{
   position: relative;
@@ -171,6 +228,8 @@ body{
   text-align: center;
   overflow: hidden;
   @include vendor-prefix(transition,opacity 0.6s);
+  animation-duration: 600ms;
+  -webkit-animation-duration: 600ms;
   &.current{
     //display: block;
     opacity: 1;
@@ -240,16 +299,16 @@ body{
   }
   .btn-submit{
     position: absolute;
-    bottom: 0.9rem;
+    bottom: 1.4rem;
     left: 52%;
-    margin-left: -2.94rem;
-    @include size(5.88rem,1.11rem);
+    margin-left: -1.51rem;
+    @include size(3.02rem,0.61rem);
   }
   .privacy-term{
     position: absolute;
     bottom: 0.8rem;
     left: 50%;
-    margin-left: -1.46rem;
+    margin-left: -1.3rem;
     @include size(2.82rem,0.35rem);
   }
   .term-pop{
@@ -270,7 +329,8 @@ body{
   }
 }
 
-input[type="text"]{
+input[type="text"],
+input[type="tel"]{
   border: none;
   background: url("../images/input-border.png") bottom center no-repeat;
   -webkit-background-size: 100%;
@@ -281,7 +341,8 @@ input[type="text"]{
   width: 6.35rem;
   margin: 0 auto;
   .input-box{
-    input[type="text"]{
+    position: relative;
+    input[type="text"],input[type="tel"]{
       @include size(6.35rem,0.67rem);
       text-align: center;
       font-size: 0.3rem;
@@ -291,7 +352,7 @@ input[type="text"]{
   .btn-getkeycode{
     @include size(1.68rem,0.42rem);
     position: absolute;
-    bottom: 0.1rem;
+    top: 0.15rem;
     right: 0.5rem;
     background: url("../images/btn-getkeycode.png") bottom center no-repeat;
     -webkit-background-size: 100%;
@@ -335,6 +396,12 @@ input[type="text"]{
   }
 }
 .qrcode-pop{
+  &.popup{
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+  }
   img{
     @include size(2.38rem,4.02rem);
     position: absolute;
@@ -487,7 +554,7 @@ input[type="text"]{
 //for tips-pop
 .popup{
   position: absolute;
-  z-index: 100;
+  z-index: 101;
   background: rgba(0,0,0,0.85);
   width: 100%;
   height: 100%;
