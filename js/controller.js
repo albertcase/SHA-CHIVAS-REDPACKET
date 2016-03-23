@@ -26,8 +26,8 @@
                     //remove the loading and show the age tips
                     $('.preloading').remove(1000);
                     //$('.tips-pop').removeClass('hide').addClass('fade animate');
-                    gotoPin(1);
-                    self.formValidate();
+                    gotoPin(2);
+                    self.toMoneyPage();
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){

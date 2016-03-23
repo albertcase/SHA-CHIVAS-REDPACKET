@@ -194,14 +194,6 @@ img {
   transform: rotate(-45deg);
 }
 
-.qrcode {
-  width: 4.51rem;
-  height: 6.46rem;
-  margin: 1.6rem auto 0;
-  position: relative;
-  z-index: 100;
-}
-
 body {
   font: 0.24rem/1.5 "SimSun",serif;
   background: #000;
@@ -559,6 +551,27 @@ input[type="tel"] {
   height: 2.24rem;
   margin: 0 auto 2.5rem;
 }
+.pin-3 .p3-t1 .tt {
+  width: 100%;
+  background: url("../images/money-list.png") no-repeat;
+  background-size: 100%;
+}
+.pin-3 .p3-t1 .t1 {
+  height: 0.6rem;
+  background-position: 0 0;
+}
+.pin-3 .p3-t1 .t2 {
+  height: 1rem;
+  background-position: 0 31%;
+  margin: 0 auto 0.2rem;
+}
+.pin-3 .p3-t1 .t2.money2 {
+  background-position: 0 75%;
+}
+.pin-3 .p3-t1 .t3 {
+  height: 0.3rem;
+  background-position: 0 100%;
+}
 .pin-3 .btn {
   width: 2.52rem;
   height: 0.6rem;
@@ -571,17 +584,21 @@ input[type="tel"] {
   top: 10%;
   left: 10%;
 }
-.qrcode-pop img {
-  width: 2.38rem;
-  height: 4.02rem;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.qrcode-pop .qrcode {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 2rem auto 0.5rem;
+}
+.qrcode-pop .qrcode-text {
+  margin: 0 auto;
+}
+.qrcode-pop .qt-yes {
+  width: 2.34rem;
+  height: 1.07rem;
+}
+.qrcode-pop .qt-no {
+  width: 2.34rem;
+  height: 1.5rem;
 }
 
 .share-pop .share-1 {
