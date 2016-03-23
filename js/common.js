@@ -207,6 +207,21 @@ $(document).ready(function($){
 				return false;
 			}
 		},
+		selectPhase:function(){
+			var userSelection;
+			if (window.getSelection) { //现代浏览器
+				userSelection = window.getSelection();
+			} else if (document.selection) { //IE浏览器 考虑到Opera，应该放在后面
+				userSelection = document.selection.createRange();
+			}
+			console.log(userSelection);
+			//if (userSelection.getRangeAt) {
+			//	alert(userSelection.getRangeAt(0));
+			//} else {
+			//	alert("当前浏览器不支持getRangeAt");
+			//}
+		}
+
 	};
 
 	//alert(Common.isWx());
