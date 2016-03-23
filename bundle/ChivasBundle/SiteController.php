@@ -7,8 +7,13 @@ use Core\Controller;
 class SiteController extends Controller {
 
 	public function indexAction() {		
-		$this->render('site/index', array());
-		exit;
+		$UserAPI = new \Lib\UserAPI();
+		$user = $UserAPI->userLoad();
+		if ($user) {
+			echo $user->openid;
+			exit;
+		}
+		echo 2;exit;
 	}
 
 	public function callbackAction() {		
