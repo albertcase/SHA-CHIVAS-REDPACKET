@@ -436,30 +436,36 @@ body {
 }
 
 .pin-2 {
-  background: url("../images/p2-bg.png") no-repeat;
+  background: #2b0103 url("../images/p2-bg.png") no-repeat;
   -webkit-background-size: 100%;
   background-size: 100%;
 }
 .pin-2 .logo {
   width: 2.58rem;
   height: 0.54rem;
-  margin: 1.4rem auto 0.8rem;
+  margin: 1rem auto 0.9rem;
 }
 .pin-2 .btn-submit {
   position: absolute;
   bottom: 1.4rem;
   left: 52%;
-  margin-left: -1.51rem;
-  width: 3.02rem;
-  height: 0.61rem;
+  margin-left: -1rem;
+  width: 2rem;
+  height: 0.6rem;
 }
 .pin-2 .privacy-term {
   position: absolute;
-  bottom: 0.8rem;
-  left: 50%;
-  margin-left: -1.3rem;
+  right: 0.2rem;
+  bottom: 0.2rem;
   width: 2.82rem;
   height: 0.35rem;
+}
+.pin-2 .p2-search {
+  position: absolute;
+  left: 0.2rem;
+  bottom: 0.2rem;
+  width: 2.44rem;
+  height: 0.32rem;
 }
 .pin-2 .term-pop {
   width: 6.2rem;
