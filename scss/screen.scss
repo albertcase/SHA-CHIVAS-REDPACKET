@@ -116,13 +116,6 @@ img{
 
 }
 
-.qrcode{
-  @include size(4.51rem,6.46rem);
-  margin: 1.6rem auto 0;
-  position: relative;
-  z-index: 100;
-}
-
 body{
   font:0.24rem/1.5 "SimSun",serif;
   background: #000;
@@ -290,26 +283,31 @@ body{
 
 //for .pin-2
 .pin-2{
-  background:url("../images/p2-bg.png") no-repeat;
+  background:#2b0103 url("../images/p2-bg.png") no-repeat;
   -webkit-background-size: 100%;
   background-size: 100%;
   .logo{
     @include size(2.58rem,0.54rem);
-    margin: 1.4rem auto 0.8rem;
+    margin: 1rem auto 0.9rem;
   }
   .btn-submit{
     position: absolute;
     bottom: 1.4rem;
     left: 52%;
-    margin-left: -1.51rem;
-    @include size(3.02rem,0.61rem);
+    margin-left: -1rem;
+    @include size(2rem,0.6rem);
   }
   .privacy-term{
     position: absolute;
-    bottom: 0.8rem;
-    left: 50%;
-    margin-left: -1.3rem;
+    right: 0.2rem;
+    bottom: 0.2rem;
     @include size(2.82rem,0.35rem);
+  }
+  .p2-search{
+    position: absolute;
+    left: 0.2rem;
+    bottom: 0.2rem;
+    @include size(2.44rem,0.32rem);
   }
   .term-pop{
     @include size(6.2rem,8.5rem);
@@ -389,6 +387,27 @@ input[type="tel"]{
   .p3-t1{
     @include size(3.52rem,2.24rem);
     margin: 0 auto 2.5rem;
+    .tt{
+      width: 100%;
+      background: url("../images/money-list.png") no-repeat;
+      background-size: 100%;
+    }
+    .t1{
+      height: 0.6rem;
+      background-position: 0 0;
+    }
+    .t2{
+      height: 1rem;
+      background-position: 0 31%;
+      margin: 0 auto 0.2rem;
+      &.money2{
+        background-position: 0 75%;
+      }
+    }
+    .t3{
+      height: 0.3rem;
+      background-position: 0 100%;
+    }
   }
   .btn{
     @include size(2.52rem,0.6rem);
@@ -402,12 +421,18 @@ input[type="tel"]{
     top: 10%;
     left: 10%;
   }
-  img{
-    @include size(2.38rem,4.02rem);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    @include transform(translate(-50%,-50%));
+  .qrcode{
+    @include size(2.4rem,2.4rem);
+    margin: 2rem auto 0.5rem;
+  }
+  .qrcode-text{
+    margin: 0 auto;
+  }
+  .qt-yes{
+    @include size(2.34rem,1.07rem);
+  }
+  .qt-no{
+    @include size(2.34rem,1.5rem);
   }
 }
 .share-pop{
