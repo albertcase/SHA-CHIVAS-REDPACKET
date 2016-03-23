@@ -15,7 +15,7 @@ define("CURIO_TOKEN", 'ff722b49-b508-4922-9541-60efe20a05f8');
 //Database config info
 define("DBHOST", '127.0.0.1');
 define("DBUSER", 'root');
-define("DBPASS", '');
+define("DBPASS", '1qazxsw2');
 define("DBNAME", 'chivas_redpacket');
 
 
