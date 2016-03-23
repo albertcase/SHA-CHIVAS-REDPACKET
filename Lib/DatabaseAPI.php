@@ -29,7 +29,7 @@ class DatabaseAPI extends Base {
 		if ($user) {
 			return $user;
 		}
-		$sql = "INSERT INTO `coach_xmas_info` SET `openid` = ?";
+		$sql = "INSERT INTO `chivas_info` SET `openid` = ?";
 		$res = $this->db->prepare($sql); 
 		$res->bind_param("s", $openid);
 		if ($res->execute()) {
