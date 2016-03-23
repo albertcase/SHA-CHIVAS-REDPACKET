@@ -8,8 +8,8 @@ define("BASE_URL", 'http://xxx.com/');
 define("TEMPLATE_ROOT", dirname(__FILE__) . '/../template');
 //Wechat config info
 define("TOKEN", 'xxxx');
-define("APPID", 'xxxx');
-define("APPSECRET", 'xxxx');
+define("APPID", 'd8a62e3e6a33765ebc619af92315d396');
+define("APPSECRET", 'b268f96a8b9bb28f79f8a158b7dae297');
 define("NOWTIME", time());
 
 
