@@ -615,6 +615,11 @@ select:-webkit-autofill {
   width: 2.34rem;
   height: 1.5rem;
 }
+.qrcode-pop .minite-30 {
+  width: 2.1rem;
+  height: 0.24rem;
+  margin: 0.2rem auto 0;
+}
 
 .share-pop .share-1 {
   float: right;

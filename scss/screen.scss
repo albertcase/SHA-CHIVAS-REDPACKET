@@ -447,6 +447,10 @@ select:-webkit-autofill {
   .qt-no{
     @include size(2.34rem,1.5rem);
   }
+  .minite-30{
+    @include size(2.1rem,0.24rem);
+    margin: 0.2rem auto 0;
+  }
 }
 .share-pop{
   .share-1{
