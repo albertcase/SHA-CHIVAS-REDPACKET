@@ -23,8 +23,8 @@
                 onComplete: function(){
                     //remove the loading and show the age tips
                     $('.preloading').remove(1000);
-                    //$('.tips-pop').removeClass('hide').addClass('fade animate');
-                    gotoPin(1);
+                    $('.tips-pop').removeClass('hide').addClass('fade animate');
+                    //gotoPin(2);
                     self.formValidate();
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
