@@ -6,7 +6,7 @@ class UserAPI extends Base {
 	private $_db;
 
 	public function __construct() {
-		$this->_db = new DatabaseAPI();
+		$this->_db = new \Lib\DatabaseAPI();
 	}
 
 	public function userLoad($type = false){
@@ -16,7 +16,7 @@ class UserAPI extends Base {
 			if ($type == true) {
 				return false;
 			}
-			$WechatAPI = new WechatAPI();
+			$WechatAPI = new \Lib\WechatAPI();
 			$WechatAPI->wechatAuthorize();
 		}
 		
