@@ -81,7 +81,7 @@ class DatabaseAPI extends Base {
 		$res->execute();
 		$res->bind_result($uid, $openid, $mobile);
 		if($res->fetch()) {
-			$user = new stdClass();
+			$user = new \stdClass();
 			$user->uid = $uid;
 			$user->openid = $openid;
 			$user->lottery = $mobile;
