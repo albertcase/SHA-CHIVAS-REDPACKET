@@ -7,12 +7,9 @@ define("REDIS_PORT", '6379');
 define("BASE_URL", 'http://xxx.com/');
 define("TEMPLATE_ROOT", dirname(__FILE__) . '/../template');
 //Wechat config info
-define("TOKEN", 'xxxx');
-define("APPID", 'd8a62e3e6a33765ebc619af92315d396');
-define("APPSECRET", 'b268f96a8b9bb28f79f8a158b7dae297');
 define("NOWTIME", time());
-
-
+define("CURIO_AUTH_URL", 'http://oauth.curio.im/v1/wx/web/auth/646ba27f-f03b-4d8a-8853-bed932249815');
+define("CURIO_TOKEN", 'ff722b49-b508-4922-9541-60efe20a05f8');
 
 
 //Database config info
