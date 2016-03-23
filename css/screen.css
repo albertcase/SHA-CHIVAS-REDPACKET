@@ -517,6 +517,14 @@ input[type="tel"] {
   background-size: 100%;
   border: none;
 }
+.form-validate .btn-getkeycode.countdown {
+  background: #5d2827;
+  border-radius: 10px;
+  color: #bf8b67;
+  font-size: 0.24rem;
+  line-height: 0.42rem;
+  padding: 0;
+}
 
 ::-webkit-input-placeholder {
   color: rgba(239, 206, 146, 0.6);
@@ -534,6 +542,13 @@ input[type="tel"] {
 
 :-ms-input-placeholder {
   color: rgba(239, 206, 146, 0.6);
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background: transparent;
+  color: #efce92;
 }
 
 .pin-3 {
@@ -633,17 +648,17 @@ input[type="tel"] {
   background-size: 100% 100%;
 }
 .pin-4 .logo {
-  margin: 1rem auto;
+  margin: 1rem auto 0.8rem;
   width: 2.88rem;
   height: 0.6rem;
 }
 .pin-4 .tmall {
-  margin: 0rem auto 0.4rem;
+  margin: 0 auto;
   width: 6.89rem;
   height: 4.43rem;
 }
 .pin-4 .weixin {
-  margin: 0rem auto;
+  margin: -0.2rem auto 0;
   width: 6.89rem;
   height: 4.51rem;
 }

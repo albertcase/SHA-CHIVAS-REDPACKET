@@ -356,6 +356,14 @@ input[type="tel"]{
     -webkit-background-size: 100%;
     background-size: 100%;
     border: none;
+    &.countdown{
+      background: #5d2827;
+      border-radius: 10px;
+      color: #bf8b67;
+      font-size: 0.24rem;
+      line-height: 0.42rem;
+      padding: 0;
+    }
   }
 }
 ::-webkit-input-placeholder{
@@ -373,7 +381,12 @@ input[type="tel"]{
   color: rgba(239,206,146,0.6);
 }
 
-
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background: transparent;
+  color: #efce92;
+}
 
 //for pin-3
 .pin-3{
@@ -467,15 +480,15 @@ input[type="tel"]{
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   .logo{
-    margin: 1rem auto;
+    margin: 1rem auto 0.8rem;
     @include size(2.88rem,0.6rem);
   }
   .tmall{
-    margin: 0rem auto 0.4rem;
+    margin: 0 auto;
     @include size(6.89rem,4.43rem);
   }
   .weixin{
-    margin: 0rem auto;
+    margin: -0.2rem auto 0;
     @include size(6.89rem,4.51rem);
   }
 }

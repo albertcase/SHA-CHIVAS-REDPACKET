@@ -18,16 +18,14 @@
             var i = 0;
             new preLoader(imagesArray, {
                 onProgress: function(){
-                    //i++;
-                    //var progress = parseInt(i/imagesArray.length*100);
-                    //$('.loading-progress').html('Loading...'+progress+'%');
+
                 },
                 onComplete: function(){
                     //remove the loading and show the age tips
                     $('.preloading').remove(1000);
                     //$('.tips-pop').removeClass('hide').addClass('fade animate');
                     gotoPin(1);
-                    self.selectionTaoKey();
+                    self.formValidate();
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){
@@ -46,6 +44,7 @@
                         self.formValidate();
                     });
 
+
                 }
             })
         },
@@ -54,14 +53,16 @@
 
             $('.btn-getkeycode').on('click',function(e){
                 e.preventDefault();
-                if(Common.formMobile()){
+                if($('.countdown').length>0) return;
+                if(self.formMobile()){
                     //    start to get keycode
                     console.log('validate phone number');
+                    self.countDown();
                 };
             });
             $('.pin-2 .btn-submit').on('click',function(){
                 gotoPin(2);
-                //if(Common.formKeycode()){
+                //if(self.formKeycode()){
                 //    //    start to get keycode
                 //    var phonenumber = $('.input-phone').val();
                 //    var keycode = $('.input-keycode').val();
@@ -76,6 +77,20 @@
 
         //    close the pop
             self.closePop();
+            self.toMoneyPage();
+        },
+        countDown:function(){
+            var countdownTime = 9;
+            var countdownline = setInterval(function(){
+                countdownTime--;
+                $('.btn-getkeycode').addClass('countdown').html(countdownTime);
+                if(countdownTime<=0){
+                    clearInterval(countdownline);
+                    $('.btn-getkeycode').removeClass('countdown').html('');
+                }
+            },1000);
+
+
         },
         closePop:function(){
             $('.btn-close').on('click', function(){
@@ -93,10 +108,55 @@
                 $('.share-pop').removeClass('hide').addClass('animate fade');
             });
         },
-        selectionTaoKey:function(){
-            $('.tao-code').on('touchstart touchend', function(e){
-                this.setSelectionRange(0,$(this).text().length);
-            });
+        formMobile:function(){
+            var validate = true;
+            if(!$('.input-phone').val()){
+                Common.errorMsg.add($('.input-phone').parent(),'手机号码不能为空');
+                validate = false;
+            }else{
+                var reg=/^1\d{10}$/;
+                if(!(reg.test($('.input-phone').val()))){
+                    validate = false;
+                    Common.errorMsg.add($('.input-phone').parent(),'手机号格式错误，请重新输入');
+                }else{
+                    Common.errorMsg.remove($('.input-phone').parent());
+                }
+
+            }
+
+            if(validate){
+                return true;
+            }else{
+                return false;
+            }
+        },
+        formKeycode:function(){
+            var validate = true;
+            if(!$('.input-phone').val()){
+                Common.errorMsg.add($('.input-phone').parent(),'手机号码不能为空');
+                validate = false;
+            }else{
+                var reg=/^1\d{10}$/;
+                if(!(reg.test($('.input-phone').val()))){
+                    validate = false;
+                    Common.errorMsg.add($('.input-phone').parent(),'手机号格式错误，请重新输入');
+                }else{
+                    Common.errorMsg.remove($('.input-phone').parent());
+                }
+            }
+            //for keycode
+            if(!$('.input-keycode').val()){
+                Common.errorMsg.add($('.input-keycode').parent(),'验证码不能为空');
+                validate = false;
+            }else{
+                Common.errorMsg.remove($('.input-keycode').parent());
+            }
+
+            if(validate){
+                return true;
+            }else{
+                return false;
+            }
         }
 
 
@@ -114,3 +174,9 @@
 
 
 }).call(this);
+
+$(document).ready(function($){
+    //load for home page
+    var redpacket = new controller();
+    redpacket.init();
+});
