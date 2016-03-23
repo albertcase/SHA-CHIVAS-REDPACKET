@@ -92,6 +92,7 @@ class CurioController extends Controller {
 	public function redirectAction() {		
 		$openid = $_GET['openid'];
 		$user = new \Lib\UserAPI();
+		echo $openid;die;
 		$user->userLogin($openid);
 		$this->redirect('/');
 		exit;
