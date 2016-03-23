@@ -26,8 +26,8 @@
                     //remove the loading and show the age tips
                     $('.preloading').remove(1000);
                     //$('.tips-pop').removeClass('hide').addClass('fade animate');
-                    gotoPin(2);
-                    self.toMoneyPage();
+                    gotoPin(1);
+                    self.selectionTaoKey();
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){
@@ -91,6 +91,11 @@
             });
             $('.btn-share').on('click',function(){
                 $('.share-pop').removeClass('hide').addClass('animate fade');
+            });
+        },
+        selectionTaoKey:function(){
+            $('.tao-code').on('touchstart touchend', function(e){
+                this.setSelectionRange(0,$(this).text().length);
             });
         }
 
