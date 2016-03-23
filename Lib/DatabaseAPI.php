@@ -21,5 +21,75 @@ class DatabaseAPI extends Base {
 		}
 	}
 
+	/**
+	 * Create user in database
+	 */
+	public function insertUser($openid){
+		$user = $this->findUserByOpenid($openid);
+		if ($user) {
+			return $user;
+		}
+		$sql = "INSERT INTO `coach_xmas_info` SET `openid` = ?, lottery = 0";
+		$res = $this->db->prepare($sql); 
+		$res->bind_param("s", $openid);
+		if ($res->execute()) {
+			return $this->findUserByOpenid($openid);
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function regUser($openid, $nickname, $headimgurl) {
+		if ($this->findUserByOauth($openid)) {
+			return TRUE;
+		}
+		$sql = "INSERT INTO `chivas_oauth` SET `openid` = ?, nickname = ?, headimgurl = ?";
+		$res = $this->db->prepare($sql); 
+		$res->bind_param("sss", $openid, $nickname, $headimgurl);
+		if ($res->execute()) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	/**
+	 * Create user in database
+	 */
+	public function findUserByOauth($openid){
+		$sql = "SELECT id  FROM `chivas_oauth` WHERE `openid` = ?"; 
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $openid);
+		$res->execute();
+		$res->bind_result($uid);
+		if($res->fetch()) {
+			return TRUE;
+		}
+		return FALSE;
+	}
+
+	/**
+	 * Create user in database
+	 */
+	public function findUserByOpenid($openid){
+		if (isset($_SESSION['user'])) {
+			return $_SESSION['user'];
+		}
+		$sql = "SELECT id, openid, mobile FROM `chivas_info` WHERE `openid` = ?"; 
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $openid);
+		$res->execute();
+		$res->bind_result($uid, $openid, $mobile);
+		if($res->fetch()) {
+			$user = new stdClass();
+			$user->uid = $uid;
+			$user->openid = $openid;
+			$user->lottery = $mobile;
+			$user->status = 1;
+			$_SESSION['user'] = $user;
+			return $user;
+		}
+		return NULL;
+	}
 
 }

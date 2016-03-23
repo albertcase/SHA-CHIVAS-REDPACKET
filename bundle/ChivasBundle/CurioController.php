@@ -34,6 +34,68 @@ class CurioController extends Controller {
 		var_dump($databaseAPI->insertCurio($result));
 		exit;
 	}
-	
+
+	public function regoauthAction() {
+		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
+		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
+		$api_url = 'http://oauth.curio.im/v1/wx/web/register?access_token='. $access_token;
+		// 参数数组
+		$data = array(
+		        'callback_url' => 'http://extra.chivas.com.cn/curio/callback',
+				'redirect_url' => 'http://extra.chivas.com.cn/curio/redirect',
+				'scope' => 'base'
+		);	 
+		$ch = curl_init ();
+		// print_r($ch);
+		curl_setopt ( $ch, CURLOPT_URL, $api_url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode($data) );
+		$return = curl_exec ( $ch );
+		curl_close ( $ch );
+		echo $return;
+		exit;
+	}
+
+	public function regjsAction() {
+		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
+		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
+		$api_url = 'http://wechatjs.curio.im/api/v1/register?access_token='. $access_token;
+		// 参数数组
+		$data = array(
+		        'name' => '芝华士红包分享',
+				'domain' => 'http://extra.chivas.com.cn'
+		);
+		 
+		$ch = curl_init ();
+		// print_r($ch);
+		curl_setopt ( $ch, CURLOPT_URL, $api_url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode($data) );
+		$return = curl_exec ( $ch );
+		curl_close ( $ch );
+		echo $return;
+		exit;
+	}
+
+	public function callbackAction() {		
+		$data = $GLOBALS['HTTP_RAW_POST_DATA'];
+		$data = json_decode($data, true);
+		$DatabaseAPI = new \Lib\DatabaseAPI();
+		$DatabaseAPI->regUser($data['data']['openid'], $data['data']['nickname'], $data['data']['headimgurl']);
+		exit;
+	}
+
+	public function redirectAction() {		
+		$openid = $_GET['openid'];
+		$user = new \Lib\UserAPI();
+		$user->userLogin($openid);
+		$this->redirect('/');
+		exit;
+	}
+
 
 }
