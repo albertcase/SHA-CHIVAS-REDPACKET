@@ -2,7 +2,7 @@
 
 $routers = array();
 $routers['/'] = array('ChivasBundle\Site', 'index');
-$routers['/test'] = array('ChivasBundle\Site', 'test');
+$routers['/coupon'] = array('ChivasBundle\Site', 'coupon');
 $routers['/api/test'] = array('ChivasBundle\Api', 'test');
 $routers['/api/check'] = array('ChivasBundle\Api', 'check');
 $routers['/curio/app'] = array('ChivasBundle\Curio', 'index');

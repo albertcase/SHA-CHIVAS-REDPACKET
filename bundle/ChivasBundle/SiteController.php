@@ -10,15 +10,18 @@ class SiteController extends Controller {
 		$UserAPI = new \Lib\UserAPI();
 		$user = $UserAPI->userLoad();
 		if ($user) {
-			echo $user->openid;
+			$this->render('site/home', array());
 			exit;
 		}
-		echo 2;exit;
 	}
 
-	public function callbackAction() {		
-		$this->render('site/index', array());
-		exit;
+	public function couponAction() {	
+		$UserAPI = new \Lib\UserAPI();
+		$user = $UserAPI->userLoad();
+		if ($user) {
+			$this->render('site/couponAction', array());
+			exit;
+		}
 	}
 	
 
