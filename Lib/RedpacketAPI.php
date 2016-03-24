@@ -36,6 +36,8 @@ class RedpacketAPI extends Base {
         <remark><![CDATA['.$data['remark'].']]></remark>
         <nonce_str><![CDATA['.$data['nonce_str'].']]></nonce_str>
         </xml>';
+        //act_name=table&client_ip=123.59.150.53&mch_billno=1275055201201603241234567890&mch_id=1275055201&nonce_str=123123&re_openid=o3vWouHPZ73bIf5jyIZ9xea9fEfg&remark=redpacket&send_name=Chivas&total_amount=212&total_num=1&wishing=good&wxappid=wx35a6d476b0dda3ea
+        //act_name=table&client_ip=123.59.150.53&mch_billno=1275055201201603241234567890&mch_id=1275055201&nonce_str=123123&re_openid=o3vWouHPZ73bIf5jyIZ9xea9fEfg&remark=redpacket&send_name=Chivas&total_amount=212&total_num=1&wishing=good&wxappid=wx35a6d476b0dda3ea
 
         //$data = $this->curl_post_ssl($api_url, $postData);
         //var_dump($data);exit;
@@ -66,7 +68,7 @@ class RedpacketAPI extends Base {
 
     private function sign($data, $key = 'Chivas2016RedPacketsForCampaigns') {
         ksort($data);
-        echo $str = http_build_query($data) . '&key=' . $key;
+        $str = http_build_query($data) . '&key=' . $key;
         return strtoupper(md5($str)); 
     }
 
