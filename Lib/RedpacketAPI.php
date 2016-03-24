@@ -10,14 +10,14 @@ class RedpacketAPI extends Base {
             'mch_billno' => '1275055201' . date('Ymd') . 1234567891,
             'mch_id' => '1275055201',
             'wxappid' => 'wx35a6d476b0dda3ea',
-            'send_name' => 'Chivas',
+            'send_name' => urlencode('芝华士Chivas'),
             're_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
             'total_amount' => '100',
             'total_num' => '1',
-            'wishing' => 'good',
+            'wishing' => urlencode('芝华士祝您大吉大利'),
             'client_ip' => '123.59.150.53',
-            'act_name' => 'table',
-            'remark' => 'redpacket',
+            'act_name' => urlencode('芝华士红包'),
+            'remark' => urlencode('恭喜发财大吉大利'),
         );
         //echo $_SERVER['DOCUMENT_ROOT'];exit;
         $data['sign'] = $this->sign($data);
