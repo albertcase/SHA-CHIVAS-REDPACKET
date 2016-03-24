@@ -44,8 +44,8 @@ class RedpacketAPI extends Base {
         curl_setopt($ch, CURLOPT_URL, $api_url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_SSLCERT,$_SERVER['DOCUMENT_ROOT'].'../../cert/apiclient_cert.pem');
-        curl_setopt($ch, CURLOPT_SSLKEY,$_SERVER['DOCUMENT_ROOT'].'../../cert/apiclient_key.pem'); 
+        curl_setopt($ch, CURLOPT_SSLCERT,'/data/webown/cert/apiclient_cert.pem');
+        curl_setopt($ch, CURLOPT_SSLKEY,'/data/webown/cert/apiclient_key.pem'); 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
         $return = curl_exec($ch);
