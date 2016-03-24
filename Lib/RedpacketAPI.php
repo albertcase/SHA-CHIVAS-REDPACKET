@@ -7,11 +7,13 @@ class RedpacketAPI extends Base {
         $api_url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
         $data = array(
             'nonce_str' => '123123',
-            'mch_billno' => '1275055201' . date('Ymd') . 1234567891,
+            'mch_billno' => '1275055201' . date('Ymd') . 1234567892,
             'mch_id' => '1275055201',
             'wxappid' => 'wx35a6d476b0dda3ea',
             'send_name' => '芝华士Chivas',
-            're_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
+            //'re_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
+            're_openid' => 'o3vWouBrq-b73OV25cFXhZNboy_k',
+            
             'total_amount' => '100',
             'total_num' => '1',
             'wishing' => '芝华士祝您大吉大利',
