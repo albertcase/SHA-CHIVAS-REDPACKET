@@ -7,7 +7,9 @@ use Core\Controller;
 class ApiController extends Controller {
 
 	public function testAction() {
-		return $this->dataPrint(array('code'=>1, 'msg'=>'123'));
+		$redpacket = new \Lib\RedpacketAPI();
+		$redpacket->sendredpack(123);
+		exit;
 	}
 
 	public function checkAction() {

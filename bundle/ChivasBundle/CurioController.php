@@ -83,11 +83,10 @@ class CurioController extends Controller {
 
 	public function callbackAction() {		
 		$data = $GLOBALS['HTTP_RAW_POST_DATA'];
-		//$data = json_decode($data, true);
-		//$DatabaseAPI = new \Lib\DatabaseAPI();
-		//$DatabaseAPI->regUser($data['data']['openid'], $data['data']['nickname'], $data['data']['headimgurl']);
-		$databaseAPI = new \Lib\DatabaseAPI();
-		var_dump($databaseAPI->insertCurio($data));
+		
+		// $data = json_decode($data, true);
+		// $DatabaseAPI = new \Lib\DatabaseAPI();
+		// $DatabaseAPI->regUser($data['data']['openid'], $data['data']['nickname'], $data['data']['headimgurl']);
 		exit;
 	}
 
