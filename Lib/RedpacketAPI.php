@@ -19,10 +19,26 @@ class RedpacketAPI extends Base {
             'act_name' => '芝华士现金红包活动',
             'remark' => '快告诉你的小伙伴一起来抢红包吧',
         );
-        echo $_SERVER['DOCUMENT_ROOT'];exit;
+        //echo $_SERVER['DOCUMENT_ROOT'];exit;
         $data['sign'] = $this->sign($data);
-        $data = curl_post_ssl('https://api.mch.weixin.qq.com/secapi/pay/refund', 'merchantid=1001000');
-        print_r($data);
+        $postData = '<xml>
+        <sign><![CDATA['.$data['sign'].']]></sign>
+        <mch_billno><![CDATA['.$data['mch_billno'].']]></mch_billno>
+        <mch_id><![CDATA['.$data['mch_id'].']]></mch_id>
+        <wxappid><![CDATA['.$data['wxappid'].']]></wxappid>
+        <send_name><![CDATA['.$data['send_name'].']]></send_name>
+        <re_openid><![CDATA['.$data['re_openid'].']]></re_openid>
+        <total_amount><![CDATA['.$data['total_amount'].']]></total_amount>
+        <total_num><![CDATA['.$data['total_num'].']]></total_num>
+        <wishing><![CDATA['.$data['wishing'].']]></wishing>
+        <client_ip><![CDATA['.$data['client_ip'].']]></client_ip>
+        <act_name><![CDATA['.$data['act_name'].']]></act_name>
+        <remark><![CDATA['.$data['remark'].']]></remark>
+        <nonce_str><![CDATA['.$data['nonce_str'].']]></nonce_str>
+        </xml>';
+
+        $data = curl_post_ssl($api_url, $postData);
+        var_dump($data);exit;
         // $ch = curl_init();
         // // print_r($ch);
         // curl_setopt($ch, CURLOPT_URL, $api_url);
@@ -59,8 +75,8 @@ class RedpacketAPI extends Base {
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
         curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,false);    
-        curl_setopt($ch,CURLOPT_SSLCERT,getcwd().'/cert.pem');
-        curl_setopt($ch,CURLOPT_SSLKEY,getcwd().'/private.pem');      
+        curl_setopt($ch,CURLOPT_SSLCERT,$_SERVER['DOCUMENT_ROOT'].'../../cert/apiclient_cert.pem');
+        curl_setopt($ch,CURLOPT_SSLKEY,$_SERVER['DOCUMENT_ROOT'].'../../cert/apiclient_key.pem');      
      
         if( count($aHeader) >= 1 ){
             curl_setopt($ch, CURLOPT_HTTPHEADER, $aHeader);
