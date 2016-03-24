@@ -19,7 +19,7 @@ class SiteController extends Controller {
 		$UserAPI = new \Lib\UserAPI();
 		$user = $UserAPI->userLoad();
 		if ($user) {
-			$this->render('site/couponAction', array());
+			$this->render('site/coupon', array());
 			exit;
 		}
 	}
