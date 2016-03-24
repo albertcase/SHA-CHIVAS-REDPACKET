@@ -12,7 +12,7 @@
 
 
 
-    <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/10b39d84-e3e5-4f50-873f-76ec05ed6aaf/wechat.js"></script>
+    <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/<?php print CURIO_JS_ID;?>/wechat.js"></script>
 
     <!-- inject:js -->
     <script type="text/javascript" src="/js/lib/zepto.min.js"></script>
