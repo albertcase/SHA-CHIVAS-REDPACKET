@@ -7,10 +7,10 @@ class RedpacketAPI extends Base {
         $api_url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
         $data = array(
             'nonce_str' => '123123',
-            'mch_billno' => '1275055201' . date('Ymd') . 1234567893,
+            'mch_billno' => '1275055201' . date('Ymd') . 1234567892,
             'mch_id' => '1275055201',
             'wxappid' => 'wx35a6d476b0dda3ea',
-            'send_name' => '芝华士祝您大吉大利',
+            'send_name' => '芝华士Chivas',
             //'re_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
             're_openid' => 'o3vWouBrq-b73OV25cFXhZNboy_k',
             
@@ -21,7 +21,6 @@ class RedpacketAPI extends Base {
             'act_name' => '芝华士红包',
             'remark' => '恭喜发财大吉大利',
         );
-        //echo $_SERVER['DOCUMENT_ROOT'];exit;
         $data['sign'] = $this->sign($data);
         $postData = '<xml>
         <sign><![CDATA['.$data['sign'].']]></sign>
