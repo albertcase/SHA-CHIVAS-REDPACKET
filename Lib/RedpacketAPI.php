@@ -20,7 +20,7 @@ class RedpacketAPI extends Base {
             'remark' => 'redpacket',
         );
         //echo $_SERVER['DOCUMENT_ROOT'];exit;
-        echo $data['sign'] = $this->sign($data);exit;
+        $data['sign'] = $this->sign($data);
         $postData = '<xml>
         <sign><![CDATA['.$data['sign'].']]></sign>
         <mch_billno><![CDATA['.$data['mch_billno'].']]></mch_billno>
