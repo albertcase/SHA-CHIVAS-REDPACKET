@@ -37,7 +37,7 @@ class RedpacketAPI extends Base {
         <nonce_str><![CDATA['.$data['nonce_str'].']]></nonce_str>
         </xml>';
 
-        $data = curl_post_ssl($api_url, $postData);
+        $data = $this->curl_post_ssl($api_url, $postData);
         var_dump($data);exit;
         // $ch = curl_init();
         // // print_r($ch);
