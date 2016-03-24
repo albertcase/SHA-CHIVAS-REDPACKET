@@ -66,7 +66,7 @@ class RedpacketAPI extends Base {
 
     private function sign($data, $key = 'Chivas2016RedPacketsForCampaigns') {
         ksort($data);
-        $str = http_build_query($data) . '&key=' . $key;
+        echo $str = http_build_query($data) . '&key=' . $key;
         return strtoupper(md5($str)); 
     }
 
