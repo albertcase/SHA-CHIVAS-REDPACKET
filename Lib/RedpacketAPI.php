@@ -37,18 +37,19 @@ class RedpacketAPI extends Base {
         <nonce_str><![CDATA['.$data['nonce_str'].']]></nonce_str>
         </xml>';
 
-        $data = $this->curl_post_ssl($api_url, $postData);
-        var_dump($data);exit;
-        // $ch = curl_init();
-        // // print_r($ch);
-        // curl_setopt($ch, CURLOPT_URL, $api_url);
-        // curl_setopt($ch, CURLOPT_POST, 1);
-        // curl_setopt($ch, CURLOPT_HEADER, 0);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        // $return = curl_exec($ch);
-        // curl_close($ch);
-        // echo $return;
+        //$data = $this->curl_post_ssl($api_url, $postData);
+        //var_dump($data);exit;
+        $ch = curl_init();
+        // print_r($ch);
+        curl_setopt($ch, CURLOPT_URL, $api_url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        $return = curl_exec($ch);
+        curl_close($ch);
+        echo $return;
+        exit;
     }
 
     private function randstr($num = 6) {
