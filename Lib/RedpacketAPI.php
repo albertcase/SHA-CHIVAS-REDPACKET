@@ -12,7 +12,7 @@ class RedpacketAPI extends Base {
             'wxappid' => 'wx35a6d476b0dda3ea',
             'send_name' => 'Chivas',
             're_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
-            'total_amount' => '212',
+            'total_amount' => '100',
             'total_num' => '1',
             'wishing' => 'good',
             'client_ip' => '123.59.150.53',
