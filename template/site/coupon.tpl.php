@@ -11,9 +11,6 @@
     <link rel="stylesheet" type="text/css" href="/css/screen.css"/>
     <!-- endinject -->
 
-
-    <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/<?php print CURIO_JS_ID;?>/wechat.js"></script>
-
     <!-- inject:js -->
     <script type="text/javascript" src="/js/lib/zepto.min.js"></script>
     <script type="text/javascript" src="/js/rem.js"></script>
