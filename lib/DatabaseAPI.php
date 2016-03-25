@@ -94,10 +94,10 @@ class DatabaseAPI extends Base {
 		}
 	}
 
-	public function saveScan($data) {
-		$sql = "INSERT INTO `chivas_scan` SET `result` = ?";
+	public function saveScan($data, type) {
+		$sql = "INSERT INTO `chivas_scan` SET `result` = ?, `type` = ?";
 		$res = $this->db->prepare($sql); 
-		$res->bind_param("s", $data);
+		$res->bind_param("ss", $data, $type);
 		if ($res->execute()) {
 			return TRUE;
 		} else {
