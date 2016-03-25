@@ -6,7 +6,8 @@ use Core\Controller;
 
 class CurioController extends Controller {
 
-	public function indexAction() {		
+	public function indexAction() {	
+	    exit;	
 		$client_id = 'de840778-be0a-47d2-a0a1-0334f7b85577';
 		$client_secret = '49228f94-f293-4a0f-a3bb-a981e15885cf';
 		$oauth_url = 'http://extra.chivas.com.cn/curio/oauth';
@@ -16,7 +17,8 @@ class CurioController extends Controller {
 		exit;
 	}
 
-	public function oauthAction() {		
+	public function oauthAction() {	
+		exit;		
 		$client_id = 'de840778-be0a-47d2-a0a1-0334f7b85577';
 		$client_secret = '49228f94-f293-4a0f-a3bb-a981e15885cf';
 		$oauth_url = 'http://extra.chivas.com.cn/curio/oauth';
@@ -36,6 +38,7 @@ class CurioController extends Controller {
 	}
 
 	public function regoauthAction() {
+		exit;	
 		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
 		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
 		$api_url = 'http://oauth.curio.im/v1/wx/web/register?access_token='. $access_token;
@@ -59,6 +62,7 @@ class CurioController extends Controller {
 	}
 
 	public function regjsAction() {
+		exit;	
 		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
 		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
 		$api_url = 'http://wechatjs.curio.im/api/v1/register?access_token='. $access_token;
@@ -66,6 +70,31 @@ class CurioController extends Controller {
 		$data = array(
 		        'name' => '芝华士红包分享',
 				'domain' => 'http://extra.chivas.com.cn'
+		);
+		 
+		$ch = curl_init ();
+		// print_r($ch);
+		curl_setopt ( $ch, CURLOPT_URL, $api_url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode($data) );
+		$return = curl_exec ( $ch );
+		curl_close ( $ch );
+		echo $return;
+		exit;
+	}
+
+	public function regqrcodeAction() {
+		exit;	
+		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
+		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
+		$api_url = 'http://api.curio.im/v2/wx/pubsub/subscribe?access_token='. $access_token;
+		// 参数数组
+		$data = array(
+		        'url' => 'http://extra.chivas.com.cn/curio/qrcode',
+				'type' => 'request',
+				'scope' => 'event:qrsubscribe'
 		);
 		 
 		$ch = curl_init ();
