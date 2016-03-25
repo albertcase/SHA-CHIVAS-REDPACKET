@@ -8,16 +8,14 @@
     <meta name=keywords content="芝华士Chivas">
     <title>微信红包</title>
     <!-- inject:css -->
-    <link rel="stylesheet" type="text/css" href="/css/screen.css"/>
+    <link rel="stylesheet" href="/css/all.css">
     <!-- endinject -->
 
-    <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/<?php print CURIO_JS_ID;?>/wechat.js"></script>
+
+    <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/10b39d84-e3e5-4f50-873f-76ec05ed6aaf/wechat.js"></script>
 
     <!-- inject:js -->
-    <script type="text/javascript" src="/js/lib/zepto.min.js"></script>
-    <script type="text/javascript" src="/js/rem.js"></script>
-    <script type="text/javascript" src="/js/common.js"></script>
-    <script type="text/javascript" src="/js/coupon.js"></script>
+    <script src="/js/widget-coupon.js"></script>
     <!-- endinject -->
 </head>
 <body>

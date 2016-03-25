@@ -7,18 +7,13 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- inject:css -->
-    <link rel="stylesheet" type="text/css" href="/css/screen.css"/>
+    <link rel="stylesheet" href="/css/all.css">
     <!-- endinject -->
 
-    <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/<?php print CURIO_JS_ID;?>/wechat.js"></script>
+    <script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/8309bc61-3c78-41d5-a1be-2f9e9ca01e95/wechat.js"></script>
 
     <!-- inject:js -->
-    <script type="text/javascript" src="/js/lib/zepto.min.js"></script>
-    <script type="text/javascript" src="/js/lib/pre-loader.js"></script>
-    <script type="text/javascript" src="/js/rem.js"></script>
-    <script type="text/javascript" src="/js/controller.js"></script>
-    <script type="text/javascript" src="/js/common.js"></script>
-    <script type="text/javascript" src="/js/form.js"></script>
+    <script src="/js/widget-home.js"></script>
     <!-- endinject -->
 </head>
 <body>

@@ -5,63 +5,80 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     inject = require('gulp-inject'),
     gulpCopy = require('gulp-file-copy'),
+    rename = require("gulp-rename"),
     browserSync = require('browser-sync').create();
 
 var path = {
   all:['open.html'],
-  css:['css/*.css'],
+  css:['css/screen.css'],
   js:['js/*.js'],
+  jshome:['./js/lib/zepto.min.js','./js/lib/pre-loader.js','./js/rem.js','./js/controller.js','./js/common.js','./js/form.js'],
+  jscoupon:['./js/lib/zepto.min.js','./js/rem.js','./js/common.js','./js/coupon.js'],
   images:['images/*.*']
 };
-//copy the html
-gulp.task('copy', function() {
-    var start = path.all;
-   return gulp.src(start)
-        .pipe(gulp.dest('./dist', {
-            start: start
-        }));
-});
 
-// Copy all static images
-gulp.task('images', function() {
-    return gulp.src(path.images)
-        // Pass in options to the task
-        //.pipe(imagemin({optimizationLevel: 5}))
-        .pipe(gulp.dest('./dist'));
+// Browser-sync
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./",
+            startPath: '/index.html'
+        }
+    });
 });
 
 // uglify all js
-gulp.task('js', function() {
-    return gulp.src(path.js)
+gulp.task('jshome', function() {
+    return gulp.src(path.jshome)
         // Pass in options to the task
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest('./dist/js'))
+        .pipe(concat('widget-home.js'))
+        .pipe(gulp.dest('./js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./dist/js'));
+        .pipe(gulp.dest('./js'));
+});
+
+gulp.task('jscoupon', function() {
+    return gulp.src(path.jscoupon)
+        // Pass in options to the task
+        .pipe(concat('widget-coupon.js'))
+        .pipe(gulp.dest('./js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./js'));
 });
 
 gulp.task('css', function() {
     return gulp.src(path.css)
         // Pass in options to the task
         .pipe(concat('all.css'))
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./css'))
         .pipe(minify())
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./css'));
 });
 
 gulp.task('index', function () {
-    var target = gulp.src('./tpl-redpacket/open.html');
+    var target = gulp.src('./tpl-redpacket/home.html');
     // It's not necessary to read the files (will speed up things), we're only after their paths:
-    var sources = gulp.src(['./dist/js/all.js', './dist/css/all.css'], {read: false});
+    var sources = gulp.src(['./js/widget-home.js', './css/all.css'], {read: false});
 
     return target.pipe(inject(sources))
-        .pipe(gulp.dest('./dist'));
+        .pipe(rename('/site/home.tpl.php'))
+        .pipe(gulp.dest('./template/'));
+});
+
+gulp.task('coupon', function () {
+    var target = gulp.src('./tpl-redpacket/coupon.html');
+    // It's not necessary to read the files (will speed up things), we're only after their paths:
+    var sources = gulp.src(['./js/widget-coupon.js', './css/all.css'], {read: false});
+
+    return target.pipe(inject(sources))
+        .pipe(rename('/site/coupon.tpl.php'))
+        .pipe(gulp.dest('./template/'));
 });
 
 
-gulp.task('compile',['copy','js','images','css','index']);
-//gulp.task('p2',['copy2','js2','images2','css2']);
-
 // Default
-//gulp.task('default', ['watch', 'browser-sync']);
+gulp.task('default', ['browser-sync']);
+//compile
+gulp.task('chome',['jshome','css','index']);
+gulp.task('ccoupon',['jscoupon','css','coupon']);
 
