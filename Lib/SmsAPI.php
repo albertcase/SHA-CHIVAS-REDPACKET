@@ -7,7 +7,7 @@ class SmsAPI extends Base {
         $code = rand(100000,999999);
         $ws = "http://webservice.smsadmin.cn/SGIP/SGIPService.php?wsdl";
         //接口地址 
-        $client = new SoapClient($ws);
+        $client = new \SoapClient($ws);
         //远程调用
         $uid = '众异市场';
         $pwd = 'samesame123';
