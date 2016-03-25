@@ -19,7 +19,9 @@ class ApiController extends Controller {
 		);
 		$request->validation($fields);
 		$mobile = $request->query->get('mobile');
-
+		$sms = new \Lib\SmsAPI();
+		$sms->sendMessage($mobile);
+		return $this->statusPrint(1, '提交成功');
 	}
 
 
