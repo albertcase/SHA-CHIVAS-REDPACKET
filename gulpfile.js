@@ -79,6 +79,7 @@ gulp.task('coupon', function () {
 // Default
 gulp.task('default', ['browser-sync']);
 //compile
+gulp.task('compile',['jshome','css','jscoupon']);
 gulp.task('chome',['jshome','css','index']);
 gulp.task('ccoupon',['jscoupon','css','coupon']);
 
