@@ -11,7 +11,7 @@
             var self = this;
             //    loading first
             $('.loading-wrap').addClass('show');
-            var baseurl = '..';
+            var baseurl = '';
             var imagesArray = [
                 baseurl + '/images/logo.png'
             ];
