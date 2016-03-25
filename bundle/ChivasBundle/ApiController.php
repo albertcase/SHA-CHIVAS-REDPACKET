@@ -18,6 +18,7 @@ class ApiController extends Controller {
 		if (!$user) {
 			return $this->statusPrint(0, '未登录');
 		}
+		var_dump($user);exit;
 		$request = $this->Request();
 		$fields = array(
 			'mobile' => array('mobile', '2'),
