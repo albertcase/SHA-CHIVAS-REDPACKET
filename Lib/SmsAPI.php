@@ -3,7 +3,7 @@ namespace Lib;
 
 class SmsAPI extends Base {
 
-    public function sendMessage($mobile){
+    public function sendMessage($userid, $mobile){
         $code = rand(100000,999999);
         $ws = "http://webservice.smsadmin.cn/SGIP/SGIPService.php?wsdl";
         //接口地址 
@@ -20,7 +20,7 @@ class SmsAPI extends Base {
         $send_rs = $client->sendSms($uid, $pwd, $mobile, $msg, $lindid, $dtime, $char);
 
         $databaseAPI = new \Lib\DatabaseAPI();
-        $databaseAPI->saveSmsLog($uid, $mobile, $code, $lindid, $msg, $send_rs);
+        $databaseAPI->saveSmsLog($userid, $mobile, $code, $lindid, $msg, $send_rs);
         return true;
     }
 

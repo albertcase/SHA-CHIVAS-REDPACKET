@@ -75,7 +75,7 @@ class DatabaseAPI extends Base {
 			$user = new \stdClass();
 			$user->uid = $uid;
 			$user->openid = $openid;
-			$user->lottery = $mobile;
+			$user->mobile = $mobile;
 			$user->status = 1;
 			$_SESSION['user'] = $user;
 			return $user;
