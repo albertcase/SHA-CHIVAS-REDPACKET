@@ -21,7 +21,7 @@ class SmsAPI extends Base {
 
         $databaseAPI = new \Lib\DatabaseAPI();
         $databaseAPI->saveSmsLog($userid, $mobile, $code, $lindid, $msg, $send_rs);
-        return true;
+        return $code;
     }
 
 }

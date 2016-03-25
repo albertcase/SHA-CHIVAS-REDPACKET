@@ -18,6 +18,10 @@ class ApiController extends Controller {
 		if (!$user) {
 			return $this->statusPrint(0, '未登录');
 		}
+
+		if (isset($_SESSION['msg_code'])) {
+			return $this->statusPrint(3, '未登录');
+		}
 		$request = $this->Request();
 		$fields = array(
 			'mobile' => array('mobile', '2'),
@@ -25,19 +29,22 @@ class ApiController extends Controller {
 		$request->validation($fields);
 		$mobile = $request->query->get('mobile');
 		$sms = new \Lib\SmsAPI();
-		$sms->sendMessage($user->uid, $mobile);
+		$code = $sms->sendMessage($user->uid, $mobile);
+
 		return $this->statusPrint(1, '提交成功');
 	}
 
 
-	public function subAction() {
+	public function submitAction() {
 		$request = $this->Request();
 		$fields = array(
-			'mobile' => array('mobile', '2'),
+			'mobile' => array('mobile', '3'),
 			'code' => array('notnull', '3'),
 		);
 		$request->validation($fields);
 		$mobile = $request->query->get('mobile');
+		$code = $request->query->get('code');
+		return $this->statusPrint(1, '提交成功');
 		
 	}
 }
