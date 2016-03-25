@@ -5,12 +5,12 @@ class DatabaseAPI extends Base {
 
 	private $db;
 
-	public function __construct(){
+	public function __construct() {
 		$connect = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 		$this->db = $connect;
 	}
 
-	public function insertCurio($result){
+	public function insertCurio($result) {
 		$sql = "INSERT INTO `curio_result` SET `result` = ?";
 		$res = $this->db->prepare($sql); 
 		$res->bind_param("s", $result);
@@ -21,10 +21,7 @@ class DatabaseAPI extends Base {
 		}
 	}
 
-	/**
-	 * Create user in database
-	 */
-	public function insertUser($openid){
+	public function insertUser($openid) {
 		$user = $this->findUserByOpenid($openid);
 		if ($user) {
 			return $user;
@@ -53,10 +50,7 @@ class DatabaseAPI extends Base {
 		}
 	}
 
-	/**
-	 * Create user in database
-	 */
-	public function findUserByOauth($openid){
+	public function findUserByOauth($openid) {
 		$sql = "SELECT id  FROM `chivas_oauth` WHERE `openid` = ?"; 
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $openid);
@@ -68,10 +62,7 @@ class DatabaseAPI extends Base {
 		return FALSE;
 	}
 
-	/**
-	 * Create user in database
-	 */
-	public function findUserByOpenid($openid){
+	public function findUserByOpenid($openid) {
 		if (isset($_SESSION['user'])) {
 			return $_SESSION['user'];
 		}
@@ -91,5 +82,17 @@ class DatabaseAPI extends Base {
 		}
 		return NULL;
 	}
+
+	public function saveSmsLog($uid, $mobile, $code, $lindid, $msg, $send_rs) {
+		$sql = "INSERT INTO `chivas_mobile` SET `uid` = ?, `mobile` = ?, code = ?, lindid = ?, msg = ?, send_rs = ?";
+		$res = $this->db->prepare($sql); 
+		$res->bind_param("ssssss", $uid, $mobile, $code, $lindid, $msg, $send_rs);
+		if ($res->execute()) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 
 }
