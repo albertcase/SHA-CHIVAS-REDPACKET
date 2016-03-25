@@ -27,7 +27,7 @@ class ApiController extends Controller {
 			'mobile' => array('mobile', '2'),
 		);
 		$request->validation($fields);
-		$mobile = $request->query->get('mobile');
+		$mobile = $request->request('mobile');
 		$sms = new \Lib\SmsAPI();
 		$code = $sms->sendMessage($user->uid, $mobile);
 
