@@ -94,5 +94,16 @@ class DatabaseAPI extends Base {
 		}
 	}
 
+	public function saveScan($data) {
+		$sql = "INSERT INTO `chivas_scan` SET `result` = ?";
+		$res = $this->db->prepare($sql); 
+		$res->bind_param("s", $data);
+		if ($res->execute()) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 
 }
