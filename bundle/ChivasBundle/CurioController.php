@@ -86,7 +86,7 @@ class CurioController extends Controller {
 	}
 
 	public function regqrcodeAction() {
-		//exit;	
+		exit;	
 		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
 		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
 		$api_url = 'http://api.curio.im/v2/wx/pubsub/subscribe?access_token='. $access_token;
@@ -111,7 +111,7 @@ class CurioController extends Controller {
 	}
 
 	public function regscanAction() {
-		//exit;	
+		exit;	
 		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
 		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
 		$api_url = 'http://api.curio.im/v2/wx/pubsub/subscribe?access_token='. $access_token;
