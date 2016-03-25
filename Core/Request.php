@@ -65,7 +65,7 @@ class Request {
 		      if($info[0] == 'mobile' && !preg_match("/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/", $value)){
 		        $code = isset($info[1]) ? $info[1] : '999';
 		        $response = new Response;
-		        $response->statusPrint($code);
+		        $response->statusPrint($code, '手机号码不正确');
 		      }
 		    }
 		    $data[$field] = $value; 

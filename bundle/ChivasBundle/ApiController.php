@@ -13,6 +13,11 @@ class ApiController extends Controller {
 	}
 
 	public function checkAction() {
+		$UserAPI = new \Lib\UserAPI();
+		$user = $UserAPI->userLoad(true);
+		if (!$user) {
+			return $this->statusPrint(0, '未登录');
+		}
 		$request = $this->Request();
 		$fields = array(
 			'mobile' => array('mobile', '2'),
@@ -20,7 +25,7 @@ class ApiController extends Controller {
 		$request->validation($fields);
 		$mobile = $request->query->get('mobile');
 		$sms = new \Lib\SmsAPI();
-		$sms->sendMessage($mobile);
+		$sms->sendMessage($user->uid, $mobile);
 		return $this->statusPrint(1, '提交成功');
 	}
 
