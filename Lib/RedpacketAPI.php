@@ -11,8 +11,8 @@ class RedpacketAPI extends Base {
             'mch_id' => '1275055201',
             'wxappid' => 'wx35a6d476b0dda3ea',
             'send_name' => '芝华士Chivas',
-            //'re_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
-            're_openid' => 'o3vWouBrq-b73OV25cFXhZNboy_k',
+            're_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
+            //'re_openid' => 'o3vWouBrq-b73OV25cFXhZNboy_k',
             
             'total_amount' => '100',
             'total_num' => '1',
