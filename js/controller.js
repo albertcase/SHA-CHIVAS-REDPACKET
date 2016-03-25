@@ -90,6 +90,7 @@
                     //    start to get keycode
                     console.log('validate phone number');
                     var mobile = $('.input-phone').val();
+                    self.countDown();
                     var xhr = $.ajax({
                         type:'POST',
                         url:'/api/check',
@@ -106,7 +107,6 @@
                             }
                         }
                     });
-                    self.countDown();
                 };
             });
             var enableSubmit = true;
@@ -119,6 +119,7 @@
                     var phonenumber = $('.input-phone').val();
                     var keycode = $('.input-keycode').val();
                     console.log(phonenumber+'phonenumber'+keycode);
+                    Common.msgBox('loading...');
                     var xhr_submit = $.ajax({
                         type:'POST',
                         url:'/api/submit',
@@ -130,6 +131,7 @@
                             //2.红包领完
                             //other：其他
                             enableSubmit = true;
+                            $('.ajaxpop').remove();
                             if(data.status==1){
                                 console.log('有红包');
                                 gotoPin(2);
