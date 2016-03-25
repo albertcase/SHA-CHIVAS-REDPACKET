@@ -11,5 +11,7 @@ $routers['/curio/regoauth'] = array('ChivasBundle\Curio', 'regoauth');
 $routers['/curio/regjs'] = array('ChivasBundle\Curio', 'regjs');
 $routers['/curio/regqrcode'] = array('ChivasBundle\Curio', 'regqrcode');
 $routers['/curio/qrcode'] = array('ChivasBundle\Curio', 'qrcode');
+$routers['/curio/regscan'] = array('ChivasBundle\Curio', 'regscan');
+$routers['/curio/scan'] = array('ChivasBundle\Curio', 'scan');
 $routers['/curio/callback'] = array('ChivasBundle\Curio', 'callback');
 $routers['/curio/redirect'] = array('ChivasBundle\Curio', 'redirect');

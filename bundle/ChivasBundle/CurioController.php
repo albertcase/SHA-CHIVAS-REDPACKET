@@ -110,11 +110,44 @@ class CurioController extends Controller {
 		exit;
 	}
 
+	public function regscanAction() {
+		//exit;	
+		$weixin_id = 'b9e97f4c56673870c597a13a5ef6e87e';
+		$access_token = 'ff722b49-b508-4922-9541-60efe20a05f8';
+		$api_url = 'http://api.curio.im/v2/wx/pubsub/subscribe?access_token='. $access_token;
+		// 参数数组
+		$data = array(
+		        'url' => 'http://extra.chivas.com.cn/curio/scan',
+				'type' => 'request',
+				'scope' => 'event:scan'
+		);
+		 
+		$ch = curl_init ();
+		// print_r($ch);
+		curl_setopt ( $ch, CURLOPT_URL, $api_url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode($data) );
+		$return = curl_exec ( $ch );
+		curl_close ( $ch );
+		echo $return;
+		exit;
+	}
+
 	public function qrcodeAction() {
 		//exit;	
 		$data = $GLOBALS['HTTP_RAW_POST_DATA'];
 		$DatabaseAPI = new \Lib\DatabaseAPI();
-		$DatabaseAPI->saveScan($data);
+		$DatabaseAPI->saveScan($data, 1);
+		exit;
+	}
+
+	public function scanAction() {
+		//exit;	
+		$data = $GLOBALS['HTTP_RAW_POST_DATA'];
+		$DatabaseAPI = new \Lib\DatabaseAPI();
+		$DatabaseAPI->saveScan($data, 2);
 		exit;
 	}
 
