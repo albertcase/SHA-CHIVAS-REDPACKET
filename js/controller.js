@@ -13,7 +13,39 @@
             $('.loading-wrap').addClass('show');
             var baseurl = '';
             var imagesArray = [
-                baseurl + '/images/logo.png'
+                baseurl + '/images/logo.png',
+                baseurl + '/images/bg-1.png',
+                baseurl + '/images/btn-get.png',
+                baseurl + '/images/btn-getkeycode.png',
+                baseurl + '/images/btn-open.png',
+                baseurl + '/images/btn-share.png',
+                baseurl + '/images/btn-submit2.png',
+                baseurl + '/images/c-2.png',
+                baseurl + '/images/c-bg2.png',
+                baseurl + '/images/c-txt.png',
+                baseurl + '/images/coupon-bg.png',
+                baseurl + '/images/coupon-logo.png',
+                baseurl + '/images/input-border.png',
+                baseurl + '/images/logo.png',
+                baseurl + '/images/min-30.png',
+                baseurl + '/images/money-list.png',
+                baseurl + '/images/p2-bg.png',
+                baseurl + '/images/p2-logo.png',
+                baseurl + '/images/p2-pop-text.png',
+                baseurl + '/images/p2-private.png',
+                baseurl + '/images/p2-search.png',
+                baseurl + '/images/p3-3.png',
+                baseurl + '/images/p3-bg.png',
+                baseurl + '/images/p3-logo.png',
+                baseurl + '/images/p3-pop-text.png',
+                baseurl + '/images/qrcode.png',
+                baseurl + '/images/redpacket-no.png',
+                baseurl + '/images/redpacket-yes.png',
+                baseurl + '/images/redpacket.png',
+                baseurl + '/images/share-overlay.png',
+                baseurl + '/images/t1.png',
+                baseurl + '/images/tips-text.png',
+                baseurl + '/images/tips.png',
             ];
             var i = 0;
             new preLoader(imagesArray, {
@@ -23,8 +55,8 @@
                 onComplete: function(){
                     //remove the loading and show the age tips
                     $('.preloading').remove(1000);
-                    $('.tips-pop').removeClass('hide').addClass('fade animate');
-                    //gotoPin(2);
+                    //$('.tips-pop').removeClass('hide').addClass('fade animate');
+                    gotoPin(1);
                     self.formValidate();
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
@@ -57,18 +89,63 @@
                 if(self.formMobile()){
                     //    start to get keycode
                     console.log('validate phone number');
+                    var mobile = $('.input-phone').val();
+                    var xhr = $.ajax({
+                        type:'POST',
+                        url:'/api/check',
+                        data:{mobile:mobile},
+                        dataType:'json',
+                        success:function(data){
+                            console.log(data);
+                            //status:1 success
+                            //0,12 msg
+                            if(data.status==1){
+                                console.log('短信发送成功');
+                            }else{
+                                alert(data.msg);
+                            }
+                        }
+                    });
                     self.countDown();
                 };
             });
+            var enableSubmit = true;
             $('.pin-2 .btn-submit').on('click',function(){
-                gotoPin(2);
-                //if(self.formKeycode()){
-                //    //    start to get keycode
-                //    var phonenumber = $('.input-phone').val();
-                //    var keycode = $('.input-keycode').val();
-                //    console.log(phonenumber+'phonenumber'+keycode);
-                //    gotoPin(2);
-                //};
+                //gotoPin(2);
+                if(self.formKeycode()){
+                    if(!enableSubmit) return;
+                    enableSubmit = false;
+                    //    start to get keycode
+                    var phonenumber = $('.input-phone').val();
+                    var keycode = $('.input-keycode').val();
+                    console.log(phonenumber+'phonenumber'+keycode);
+                    var xhr_submit = $.ajax({
+                        type:'POST',
+                        url:'/api/submit',
+                        data:{mobile:phonenumber,code:keycode},
+                        dataType:'json',
+                        success:function(data){
+                            console.log(data);
+                            //status:1 success
+                            //2.红包领完
+                            //other：其他
+                            enableSubmit = true;
+                            if(data.status==1){
+                                console.log('有红包');
+                                gotoPin(2);
+                            }else if(data.status==2){
+                                console.log('红包领完了');
+                                $('.pin-3').html('');
+                                $('.qrcode-pop').removeClass('hide');
+                                $('.qt-no').removeClass('hide');
+                                $('.qt-yes').addClass('hide');
+                                gotoPin(2);
+                            }else{
+                                alert(data.msg);
+                            }
+                        }
+                    });
+                };
             });
             //show the privacy pop
             $('.privacy-term').on('click',function(){
