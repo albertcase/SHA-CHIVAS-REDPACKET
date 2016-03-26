@@ -5,6 +5,7 @@ $routers['/'] = array('ChivasBundle\Site', 'index');
 $routers['/coupon'] = array('ChivasBundle\Site', 'coupon');
 $routers['/api/test'] = array('ChivasBundle\Api', 'test');
 $routers['/api/check'] = array('ChivasBundle\Api', 'check');
+$routers['/api/submit'] = array('ChivasBundle\Api', 'submit');
 $routers['/curio/app'] = array('ChivasBundle\Curio', 'index');
 $routers['/curio/oauth'] = array('ChivasBundle\Curio', 'oauth');
 $routers['/curio/regoauth'] = array('ChivasBundle\Curio', 'regoauth');
