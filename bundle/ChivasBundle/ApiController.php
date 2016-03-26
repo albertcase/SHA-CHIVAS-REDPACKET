@@ -59,8 +59,6 @@ class ApiController extends Controller {
 		}
 
 		if (($user->money !=0) && ($user->timeint!=0) && (NOWTIME - $user->timeint <1800)) {
-			echo "<pre>";
-			print_r($user);exit;
 			return $this->statusPrint(6, $user->money);
 		}
 
