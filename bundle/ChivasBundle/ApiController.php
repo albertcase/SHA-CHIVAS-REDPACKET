@@ -61,8 +61,10 @@ class ApiController extends Controller {
 			return $this->statusPrint(5, '您已经领过红包了');
 		}
 		$DatabaseAPI = new \Lib\DatabaseAPI();
-		echo $DatabaseAPI->loadMoney(); 
-		exit;
+		$nowMoney = $DatabaseAPI->loadMoney(); 
+		if ($nowMoney >= TOTALMONEY) {
+			return $this->statusPrint(2, '红包已经发完了');
+		}
 		return $this->statusPrint(1, '提交成功');
 		
 	}
