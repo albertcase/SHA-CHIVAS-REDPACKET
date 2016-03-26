@@ -16,8 +16,8 @@ class SmsAPI extends Base {
         $dtime = '';
         $char = 'utf-8';
         $uid = urlencode($uid);
-        $msg = urlencode($msg);
-        $send_rs = $client->sendSms($uid, $pwd, $mobile, $msg, $lindid, $dtime, $char);
+        $msgs = urlencode($msg);
+        $send_rs = $client->sendSms($uid, $pwd, $mobile, $msgs, $lindid, $dtime, $char);
 
         $databaseAPI = new \Lib\DatabaseAPI();
         $databaseAPI->saveSmsLog($userid, $mobile, $code, $lindid, $msg, $send_rs);
