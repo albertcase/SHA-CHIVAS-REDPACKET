@@ -67,7 +67,6 @@ class ApiController extends Controller {
 		if ($DatabaseAPI->loadStatusByUid($user->uid) == 1) {
 			return $this->statusPrint(5, '您已经领过红包了');
 		}
-		echo $DatabaseAPI->loadStatusByUid($user->uid);exit;
 		$nowMoney = $DatabaseAPI->loadMoney(); 
 		if ($nowMoney >= TOTALMONEY) {
 			return $this->statusPrint(2, '红包已经发完了');
