@@ -19,7 +19,7 @@ class ApiController extends Controller {
 			return $this->statusPrint(0, '未登录');
 		}
 
-		if (isset($_SESSION['msg_code']) && $_SESSION['msg_code'] - time() <= 60) {
+		if (isset($_SESSION['msg_code']) && time() - $_SESSION['msg_code'] <= 60) {
 			return $this->statusPrint(3, '短信已经发出');
 		}
 		$request = $this->Request();

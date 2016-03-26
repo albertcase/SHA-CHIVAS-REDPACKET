@@ -142,6 +142,7 @@ class CurioController extends Controller {
 		if ($postObj->EventKey == 'qrscene_11566') {
 			$DatabaseAPI = new \Lib\DatabaseAPI();
 			$DatabaseAPI->saveScan($data, 1);
+			$openid = $postObj->FromUserName;
 		}
 		exit;
 	}
@@ -153,6 +154,7 @@ class CurioController extends Controller {
 		if ($postObj->EventKey == '11566') {
 			$DatabaseAPI = new \Lib\DatabaseAPI();
 			$DatabaseAPI->saveScan($data, 2);
+			$openid = $postObj->FromUserName;
 		}
 		exit;
 	}
