@@ -58,7 +58,7 @@ class ApiController extends Controller {
 			return $this->statusPrint(4, '验证码不正确');
 		}
 
-		if ($user->money !=0 && NOWTIME - $user->timeint <1800) {
+		if (($user->money !=0) && ($user->timeint!=0) && (NOWTIME - $user->timeint <1800)) {
 			return $this->statusPrint(6, $user->money);
 		}
 
