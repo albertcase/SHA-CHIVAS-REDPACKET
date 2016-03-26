@@ -65,6 +65,7 @@ class ApiController extends Controller {
 		if ($nowMoney >= TOTALMONEY) {
 			return $this->statusPrint(2, '红包已经发完了');
 		}
+		
 		return $this->statusPrint(1, '提交成功');
 		
 	}

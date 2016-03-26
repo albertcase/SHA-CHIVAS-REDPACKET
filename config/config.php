@@ -7,7 +7,7 @@ define("REDIS_PORT", '6379');
 define("BASE_URL", 'http://extra.chivas.com.cn/');
 define("TEMPLATE_ROOT", dirname(__FILE__) . '/../template');
 //总金额 单位：分
-define("TOTALMONEY", 400);
+define("TOTALMONEY", 1000);
 //Wechat config info
 define("NOWTIME", time());
 define("CURIO_AUTH_URL", 'http://oauth.curio.im/v1/wx/web/auth/646ba27f-f03b-4d8a-8853-bed932249815');
