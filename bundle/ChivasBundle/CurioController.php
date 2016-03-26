@@ -138,16 +138,22 @@ class CurioController extends Controller {
 	public function qrcodeAction() {
 		//exit;	
 		$data = $GLOBALS['HTTP_RAW_POST_DATA'];
-		$DatabaseAPI = new \Lib\DatabaseAPI();
-		$DatabaseAPI->saveScan($data, 1);
+		$postObj = simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOCDATA);
+		if ($postObj->EventKey == 'qrscene_11566') {
+			$DatabaseAPI = new \Lib\DatabaseAPI();
+			$DatabaseAPI->saveScan($data, 1);
+		}
 		exit;
 	}
 
 	public function scanAction() {
 		//exit;	
 		$data = $GLOBALS['HTTP_RAW_POST_DATA'];
-		$DatabaseAPI = new \Lib\DatabaseAPI();
-		$DatabaseAPI->saveScan($data, 2);
+		$postObj = simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOCDATA);
+		if ($postObj->EventKey == '11566') {
+			$DatabaseAPI = new \Lib\DatabaseAPI();
+			$DatabaseAPI->saveScan($data, 2);
+		}
 		exit;
 	}
 
