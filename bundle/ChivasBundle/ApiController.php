@@ -19,7 +19,7 @@ class ApiController extends Controller {
 			return $this->statusPrint(0, '未登录');
 		}
 
-		if (isset($_SESSION['msg_time']) && time() - $_SESSION['msg_time'] <= 60) {
+		if (isset($_SESSION['msg_time']) && NOWTIME - $_SESSION['msg_time'] <= 60) {
 			return $this->statusPrint(3, '短信已经发出');
 		}
 		$request = $this->Request();
@@ -30,7 +30,7 @@ class ApiController extends Controller {
 		$mobile = $request->request->get('mobile');
 		$sms = new \Lib\SmsAPI();
 		$code = $sms->sendMessage($user->uid, $mobile);
-		$_SESSION['msg_time'] = time();
+		$_SESSION['msg_time'] = NOWTIME;
 		$_SESSION['msg_code'] = $code;
 		return $this->statusPrint(1, '提交成功');
 	}
@@ -58,20 +58,36 @@ class ApiController extends Controller {
 			return $this->statusPrint(4, '验证码不正确');
 		}
 
-		if ($user->status == 1) {
-			return $this->statusPrint(5, '您已经领过红包了');
-		}
-
-		if ($user->money !=0 && time() - $user->timeint <1800) {
+		if ($user->money !=0 && NOWTIME - $user->timeint <1800) {
 			return $this->statusPrint(6, $user->money);
 		}
+
 		$DatabaseAPI = new \Lib\DatabaseAPI();
+
+		if ($DatabaseAPI->loadStatusByUid($user->uid) == 1) {
+			return $this->statusPrint(5, '您已经领过红包了');
+		}
+		echo $DatabaseAPI->loadStatusByUid($user->uid);exit;
 		$nowMoney = $DatabaseAPI->loadMoney(); 
 		if ($nowMoney >= TOTALMONEY) {
 			return $this->statusPrint(2, '红包已经发完了');
 		}
+
 		//可以领取
-		return $this->statusPrint(1, '提交成功');
+		$rand = rand(1,2);
+		if ($rand == 1) {
+			//发1.88
+			$money = 188;		
+		} else {
+			//发2.12
+			$money = 212;
+		}
+		if ($DatabaseAPI->saveMoney($uid, $mobile, $money, NOWTIME)) {
+			$user->money = $money;
+			$user->timeint = NOWTIME;
+			return $this->statusPrint(1, $money);
+		}
+		return $this->statusPrint(999, '服务器繁忙，请稍候再试');
 		
 	}
 }
