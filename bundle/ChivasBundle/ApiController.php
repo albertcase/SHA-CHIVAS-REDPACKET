@@ -81,7 +81,7 @@ class ApiController extends Controller {
 			//发2.12
 			$money = 212;
 		}
-		if ($DatabaseAPI->saveMoney($uid, $mobile, $money, NOWTIME)) {
+		if ($DatabaseAPI->saveMoney($user->uid, $mobile, $money, NOWTIME)) {
 			$user->money = $money;
 			$user->timeint = NOWTIME;
 			return $this->statusPrint(1, $money);
