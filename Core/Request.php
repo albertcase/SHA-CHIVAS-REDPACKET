@@ -55,7 +55,7 @@ class Request {
 		      if($info[0] == 'notnull' && $value == '') {
 		        $code = isset($info[1]) ? $info[1] : '999';
 		        $response = new Response;
-		        $response->statusPrint($code);
+		        $response->statusPrint($code, '信息不能为空');
 		      }
 		      if($info[0] == 'date' && !strtotime($value)){
 		        $code = isset($info[1]) ? $info[1] : '999';

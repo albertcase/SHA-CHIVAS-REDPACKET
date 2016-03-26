@@ -19,7 +19,7 @@ class ApiController extends Controller {
 			return $this->statusPrint(0, '未登录');
 		}
 
-		if (isset($_SESSION['msg_code']) && time() - $_SESSION['msg_code'] <= 60) {
+		if (isset($_SESSION['msg_time']) && time() - $_SESSION['msg_time'] <= 60) {
 			return $this->statusPrint(3, '短信已经发出');
 		}
 		$request = $this->Request();
@@ -30,7 +30,8 @@ class ApiController extends Controller {
 		$mobile = $request->request->get('mobile');
 		$sms = new \Lib\SmsAPI();
 		$code = $sms->sendMessage($user->uid, $mobile);
-		$_SESSION['msg_code'] = time();
+		$_SESSION['msg_time'] = time();
+		$_SESSION['msg_code'] = $code;
 		return $this->statusPrint(1, '提交成功');
 	}
 
@@ -53,6 +54,10 @@ class ApiController extends Controller {
 		$request->validation($fields);
 		$mobile = $request->request->get('mobile');
 		$code = $request->request->get('code');
+		if ($code != $_SESSION['msg_code']) {
+			return $this->statusPrint(4, '验证码不正确');
+		}
+		
 		return $this->statusPrint(1, '提交成功');
 		
 	}
