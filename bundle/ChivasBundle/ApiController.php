@@ -7,8 +7,8 @@ use Core\Controller;
 class ApiController extends Controller {
 
 	public function testAction() {
-		$redpacket = new \Lib\RedpacketAPI();
-		$redpacket->sendredpack(123);
+		// $redpacket = new \Lib\RedpacketAPI();
+		// $redpacket->sendredpack(123);
 		exit;
 	}
 
