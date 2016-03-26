@@ -57,15 +57,20 @@ class ApiController extends Controller {
 		if ($code != $_SESSION['msg_code']) {
 			return $this->statusPrint(4, '验证码不正确');
 		}
-		if ($user->money != 0) {
+
+		if ($user->status == 1) {
 			return $this->statusPrint(5, '您已经领过红包了');
+		}
+
+		if ($user->money !=0 && time() - $user->timeint <1800) {
+			return $this->statusPrint(6, $user->money);
 		}
 		$DatabaseAPI = new \Lib\DatabaseAPI();
 		$nowMoney = $DatabaseAPI->loadMoney(); 
 		if ($nowMoney >= TOTALMONEY) {
 			return $this->statusPrint(2, '红包已经发完了');
 		}
-		
+		//可以领取
 		return $this->statusPrint(1, '提交成功');
 		
 	}
