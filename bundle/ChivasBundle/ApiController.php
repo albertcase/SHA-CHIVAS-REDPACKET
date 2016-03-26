@@ -60,6 +60,9 @@ class ApiController extends Controller {
 		if ($user->money != 0) {
 			return $this->statusPrint(5, '您已经领过红包了');
 		}
+		$DatabaseAPI = new \Lib\DatabaseAPI();
+		echo $DatabaseAPI->loadMoney(); 
+		exit;
 		return $this->statusPrint(1, '提交成功');
 		
 	}

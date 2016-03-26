@@ -105,5 +105,16 @@ class DatabaseAPI extends Base {
 		}
 	}
 
+	public function loadMoney() {
+		$sql = "SELECT sum(`money`) FROM `chivas_info`"; 
+		$res = $this->db->prepare($sql);
+		$res->execute();
+		$res->bind_result($num);
+		if($res->fetch()) {
+			return $num;
+		}
+		return 0;
+	}
+
 
 }
