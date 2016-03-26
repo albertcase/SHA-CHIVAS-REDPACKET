@@ -57,7 +57,9 @@ class ApiController extends Controller {
 		if ($code != $_SESSION['msg_code']) {
 			return $this->statusPrint(4, '验证码不正确');
 		}
-		
+		if ($user->money != 0) {
+			return $this->statusPrint(5, '您已经领过红包了');
+		}
 		return $this->statusPrint(1, '提交成功');
 		
 	}
