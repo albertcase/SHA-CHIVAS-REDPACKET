@@ -267,7 +267,7 @@ body{
     left: 50%;
   }
   .logo{
-    @include size(2.88rem,0.63rem);
+    @include size(2.58rem,0.54rem);
     margin: 0.6rem auto 0.4rem;
   }
   .btn-open{
@@ -504,7 +504,7 @@ select:-webkit-autofill {
   background-size: 100%;
   .logo{
     margin: 1.1rem auto 0.5rem;
-    @include size(1.8rem,1.8rem);
+    @include size(1.62rem,1.66rem);
   }
   .c-text{
     margin: 0rem auto 0.1rem;
