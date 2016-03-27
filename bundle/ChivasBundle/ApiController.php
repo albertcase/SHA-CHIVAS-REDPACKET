@@ -19,8 +19,8 @@ class ApiController extends Controller {
 			return $this->statusPrint(0, '未登录');
 		}
 		$DatabaseAPI = new \Lib\DatabaseAPI();
-		$status = $DatabaseAPI->loadStatusByUid($user->uid);
-		return $this->statusPrint($status);
+		$data = $DatabaseAPI->loadStatusAndMoneyByUid($user->uid);
+		return $this->statusPrint($data->status, $data->money);
 	}
 
 	public function checkAction() {
