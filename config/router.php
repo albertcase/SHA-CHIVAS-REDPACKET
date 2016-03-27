@@ -4,6 +4,7 @@ $routers = array();
 $routers['/'] = array('ChivasBundle\Site', 'index');
 $routers['/coupon'] = array('ChivasBundle\Site', 'coupon');
 $routers['/api/test'] = array('ChivasBundle\Api', 'test');
+$routers['/api/status'] = array('ChivasBundle\Api', 'status');
 $routers['/api/check'] = array('ChivasBundle\Api', 'check');
 $routers['/api/submit'] = array('ChivasBundle\Api', 'submit');
 $routers['/curio/app'] = array('ChivasBundle\Curio', 'index');

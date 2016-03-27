@@ -12,6 +12,17 @@ class ApiController extends Controller {
 		exit;
 	}
 
+	public function statusAction() {
+		$UserAPI = new \Lib\UserAPI();
+		$user = $UserAPI->userLoad(true);
+		if (!$user) {
+			return $this->statusPrint(0, '未登录');
+		}
+		$DatabaseAPI = new \Lib\DatabaseAPI();
+		$status = $DatabaseAPI->loadStatusByUid($user->uid);
+		return $this->statusPrint($status);
+	}
+
 	public function checkAction() {
 		$UserAPI = new \Lib\UserAPI();
 		$user = $UserAPI->userLoad(true);
