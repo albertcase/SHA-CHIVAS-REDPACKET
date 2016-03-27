@@ -15,9 +15,9 @@ class RedpacketAPI extends Base {
 
         $api_url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
         $data = array(
-            'nonce_str' => $this->randstr(6),
-            'mch_billno' => WX_BUSID . date('Ymd') . rand(1000000000,9999999999),
-            'mch_id' => WX_BUSID,
+            'nonce_str' => '123123',
+            'mch_billno' => '1275055201' . date('Ymd') . rand(1000000000,9999999999),
+            'mch_id' => '1275055201',
             'wxappid' => WX_APPID,
             'send_name' => '芝华士Chivas',
             're_openid' => $user->openid,
