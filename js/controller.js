@@ -56,6 +56,7 @@
                     //remove the loading and show the age tips
                     $('.preloading').remove(1000);
                     //init need know if user got the money
+
                     var LoadingStatus = $.ajax({
                         type:'POST',
                         url:'/api/status',
@@ -66,13 +67,20 @@
                             if(data.status==1){
                             //    直接去红包页面
                                 gotoPin(2);
+                                self.toMoneyPage();
                             }else{
                                 $('.tips-pop').removeClass('hide').addClass('fade animate');
-                                //gotoPin(1);
-                                //self.formValidate();
                             }
                         }
                     });
+
+                    //for test
+                    //gotoPin(2);
+                    //self.toMoneyPage();
+                    //$('.tips-pop').removeClass('hide').addClass('fade animate');
+                    //gotoPin(2);
+                    //$('.p3-t1 .t2').removeClass('money2');
+
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){
@@ -187,7 +195,7 @@
             self.toMoneyPage();
         },
         countDown:function(){
-            var countdownTime = 9;
+            var countdownTime = 59;
             var countdownline = setInterval(function(){
                 countdownTime--;
                 $('.btn-getkeycode').addClass('countdown').html(countdownTime);
