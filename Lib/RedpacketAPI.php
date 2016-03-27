@@ -57,6 +57,7 @@ class RedpacketAPI extends Base {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
         $return = curl_exec($ch);
         curl_close($ch);
+        $DatabaseAPI->updateStatusByUid($user->uid);
         return $DatabaseAPI->redpacketLog($user->uid, $user->openid, $user->money, $data['mch_billno'], $return);
     }
 

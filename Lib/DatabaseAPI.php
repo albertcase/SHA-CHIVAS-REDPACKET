@@ -140,16 +140,15 @@ class DatabaseAPI extends Base {
 		return FALSE;
 	}
 
-	public function loadStatusByUid($uid) {
-		$sql = "SELECT status  FROM `chivas_info` WHERE `id` = ?"; 
+	public function updateStatusByUid($uid) {
+		$sql = "UPDATE `chivas_info` SET status=1 WHERE `id` = ?"; 
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $uid);
-		$res->execute();
-		$res->bind_result($status);
-		if($res->fetch()) {
-			return $status;
+		if ($res->execute()) {
+			return TRUE;
+		} else {
+			return FALSE;
 		}
-		return FALSE;
 	}
 
 	public function redpacketLog($uid, $openid, $money, $orderid, $result) {
