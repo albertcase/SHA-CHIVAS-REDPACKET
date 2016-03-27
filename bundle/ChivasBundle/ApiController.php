@@ -68,10 +68,10 @@ class ApiController extends Controller {
 		if ($code != $_SESSION['msg_code']) {
 			return $this->statusPrint(4, '验证码不正确');
 		}
-
-		if (($user->money !=0) && ($user->timeint!=0) && (NOWTIME - $user->timeint <1800)) {
-			return $this->statusPrint(6, $user->money);
-		}
+		//半小时重复提交
+		// if (($user->money !=0) && ($user->timeint!=0) && (NOWTIME - $user->timeint <1800)) {
+		// 	return $this->statusPrint(6, $user->money);
+		// }
 
 		$DatabaseAPI = new \Lib\DatabaseAPI();
 
