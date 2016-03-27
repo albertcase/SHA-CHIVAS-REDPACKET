@@ -80,7 +80,8 @@
                     });
 
                     //for test
-
+                    //gotoPin(2);
+                    //self.toMoneyPage();
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){
