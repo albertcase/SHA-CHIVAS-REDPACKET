@@ -66,6 +66,11 @@
                             //status:1 已经领取红包
                             if(data.status==1){
                             //    直接去红包页面
+                                if(data.msg==212){
+                                    $('.p3-t1 .t2').addClass('money2');
+                                }else if(data.msg==188){
+                                    $('.p3-t1 .t2').removeClass('money2');
+                                }
                                 gotoPin(2);
                                 self.toMoneyPage();
                             }else{
@@ -75,11 +80,6 @@
                     });
 
                     //for test
-                    //gotoPin(2);
-                    //self.toMoneyPage();
-                    //$('.tips-pop').removeClass('hide').addClass('fade animate');
-                    //gotoPin(2);
-                    //$('.p3-t1 .t2').removeClass('money2');
 
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
