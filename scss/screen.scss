@@ -537,6 +537,11 @@ select:-webkit-autofill {
       line-height: 1.5;
       border: none;
       border-radius: 0;
+      background: -moz-linear-gradient(top,#d9b78c,#f7ddba,#d9b78c);
+      background: -webkit-linear-gradient(top,#d9b78c,#f7ddba,#d9b78c);
+      background: -ms-linear-gradient(top,#d9b78c,#f7ddba,#d9b78c);
+      background: -o-linear-gradient(top,#d9b78c,#f7ddba,#d9b78c);
+      background: linear-gradient(top,#d9b78c,#f7ddba,#d9b78c);
     }
   }
 }

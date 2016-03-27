@@ -55,9 +55,24 @@
                 onComplete: function(){
                     //remove the loading and show the age tips
                     $('.preloading').remove(1000);
-                    //$('.tips-pop').removeClass('hide').addClass('fade animate');
-                    gotoPin(1);
-                    self.formValidate();
+                    //init need know if user got the money
+                    var LoadingStatus = $.ajax({
+                        type:'POST',
+                        url:'/api/status',
+                        dataType:'json',
+                        success:function(data){
+                            console.log(data);
+                            //status:1 已经领取红包
+                            if(data.status==1){
+                            //    直接去红包页面
+                                gotoPin(2);
+                            }else{
+                                $('.tips-pop').removeClass('hide').addClass('fade animate');
+                                //gotoPin(1);
+                                //self.formValidate();
+                            }
+                        }
+                    });
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){
@@ -127,16 +142,29 @@
                         dataType:'json',
                         success:function(data){
                             console.log(data);
-                            //status:1 success
+                            //status:1 success,get the money
                             //2.红包领完
                             //other：其他
                             enableSubmit = true;
                             $('.ajaxpop').remove();
                             if(data.status==1){
-                                console.log('有红包');
+                                //console.log('有红包,金额2.12或者1.88');
+                                if(data.msg==212){
+                                    $('.p3-t1 .t2').addClass('money2');
+                                }else if(data.msg==188){
+                                    $('.p3-t1 .t2').removeClass('money2');
+                                }
+                                gotoPin(2);
+                            }else if(data.status==6){
+                                //console.log('之前得到红包在半小时内未领取');
+                                if(data.msg==212){
+                                    $('.p3-t1 .t2').addClass('money2');
+                                }else if(data.msg==188){
+                                    $('.p3-t1 .t2').removeClass('money2');
+                                }
                                 gotoPin(2);
                             }else if(data.status==2){
-                                console.log('红包领完了');
+                                //console.log('红包领完了');
                                 $('.pin-3').html('');
                                 $('.qrcode-pop').removeClass('hide');
                                 $('.qt-no').removeClass('hide');
