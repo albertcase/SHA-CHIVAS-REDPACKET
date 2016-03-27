@@ -5,8 +5,8 @@
 			var clientWidth = docEl.clientWidth;
 			var clientHeight = window.innerHeight;
 			if (!clientWidth) return;
-			if(clientWidth/clientHeight > 750/1116){
-				docEl.style.fontSize = 50 * (clientHeight / 558) + 'px';
+			if(clientWidth/clientHeight > 750/1334){
+				docEl.style.fontSize = 50 * (clientHeight / 667) + 'px';
 				//$('.wrapper').addClass('landscape');
 			}else{
 				//$('.wrapper').removeClass('landscape');
