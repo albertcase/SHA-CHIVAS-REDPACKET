@@ -82,7 +82,8 @@ class ApiController extends Controller {
 		if ($nowMoney >= TOTALMONEY) {
 			return $this->statusPrint(2, '红包已经发完了');
 		}
-
+		unset($_SESSION['msg_time']);
+		unset($_SESSION['msg_code']);
 		//可以领取
 		$rand = rand(1,2);
 		if ($rand == 1) {
