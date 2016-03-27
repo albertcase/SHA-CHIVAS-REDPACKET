@@ -4,18 +4,27 @@ namespace Lib;
 class RedpacketAPI extends Base {
 
     public function sendredpack($openid) {
-        
+        $DatabaseAPI = new \Lib\DatabaseAPI();
+        $user = $DatabaseAPI->findUserForWechat($openid);
+        if (!$user) {
+            return false;
+        }
+        if ($user->status == 1) {
+            return false;
+        }
+
         $api_url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
         $data = array(
-            'nonce_str' => '123123',
-            'mch_billno' => '1275055201' . date('Ymd') . rand(1000000000,9999999999),
-            'mch_id' => '1275055201',
-            'wxappid' => 'wx35a6d476b0dda3ea',
+            'nonce_str' => $this->randstr(6),
+            'mch_billno' => WX_BUSID . date('Ymd') . rand(1000000000,9999999999),
+            'mch_id' => WX_BUSID,
+            'wxappid' => WX_APPID,
             'send_name' => '芝华士Chivas',
-            're_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
+            're_openid' => $openid,
+            //'re_openid' => 'o3vWouHPZ73bIf5jyIZ9xea9fEfg',
             //'re_openid' => 'o3vWouBrq-b73OV25cFXhZNboy_k',
             
-            'total_amount' => '100',
+            'total_amount' => $user->money,
             'total_num' => '1',
             'wishing' => '芝华士祝您大吉大利',
             'client_ip' => '123.59.150.53',
@@ -48,8 +57,7 @@ class RedpacketAPI extends Base {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
         $return = curl_exec($ch);
         curl_close($ch);
-        echo $return;
-        exit;
+        return $DatabaseAPI->redpacketLog($user->uid, $user->openid, $user->money, $data['mch_billno'], $return);
     }
 
     private function randstr($num = 6) {

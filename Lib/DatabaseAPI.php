@@ -140,6 +140,48 @@ class DatabaseAPI extends Base {
 		return FALSE;
 	}
 
+	public function loadStatusByUid($uid) {
+		$sql = "SELECT status  FROM `chivas_info` WHERE `id` = ?"; 
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $uid);
+		$res->execute();
+		$res->bind_result($status);
+		if($res->fetch()) {
+			return $status;
+		}
+		return FALSE;
+	}
+
+	public function redpacketLog($uid, $openid, $money, $orderid, $result) {
+		$sql = "INSERT INTO `chivas_redpacket_log` SET `uid` = ?, `openid` = ?, `money` = ?, `orderid` = ?, `result` = ?";
+		$res = $this->db->prepare($sql); 
+		$res->bind_param("sssss", $uid, $openid, $money, $orderid, $result);
+		if ($res->execute()) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function findUserForWechat($openid) {
+		$sql = "SELECT `id`, `openid`, `mobile`, `money`, `timeint`, `status` FROM `chivas_info` WHERE `openid` = ?"; 
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $openid);
+		$res->execute();
+		$res->bind_result($uid, $openid, $mobile, $money, $timeint, $status);
+		if($res->fetch()) {
+			$user = new \stdClass();
+			$user->uid = $uid;
+			$user->openid = $openid;
+			$user->mobile = $mobile;
+			$user->money = $money;
+			$user->timeint = $timeint;
+			$user->status = $status;
+			return $user;
+		}
+		return NULL;
+	}
+
 	
 
 }
