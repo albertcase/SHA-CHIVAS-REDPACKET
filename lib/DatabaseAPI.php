@@ -167,9 +167,10 @@ class DatabaseAPI extends Base {
 	}
 
 	public function redpacketLog($uid, $openid, $money, $orderid, $result) {
-		$sql = "INSERT INTO `chivas_redpacket_log` SET `uid` = ?, `openid` = ?, `money` = ?, `orderid` = ?, `result` = ?";
+		$postObj = simplexml_load_string($result, 'SimpleXMLElement', LIBXML_NOCDATA);
+		$sql = "INSERT INTO `chivas_redpacket_log` SET `uid` = ?, `openid` = ?, `money` = ?, `orderid` = ?, `result` = ?, `msg` = ?";
 		$res = $this->db->prepare($sql); 
-		$res->bind_param("sssss", $uid, $openid, $money, $orderid, $result);
+		$res->bind_param("ssssss", $uid, $openid, $money, $orderid, $result, $postObj->return_msg);
 		if ($res->execute()) {
 			return TRUE;
 		} else {
