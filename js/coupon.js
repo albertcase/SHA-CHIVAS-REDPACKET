@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
     //load
-    gotoPin(0);
+    gotoPin(1);
 
     //go to copy taobaokey page
     $('.tmall').on('click',function(){
