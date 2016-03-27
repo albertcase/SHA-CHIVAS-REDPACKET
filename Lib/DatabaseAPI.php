@@ -140,6 +140,21 @@ class DatabaseAPI extends Base {
 		return FALSE;
 	}
 
+	public function loadStatusAndMoneyByUid($uid) {
+		$sql = "SELECT status,money  FROM `chivas_info` WHERE `id` = ?"; 
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $uid);
+		$res->execute();
+		$res->bind_result($status, $money);
+		if($res->fetch()) {
+			$data = new \stdClass();
+			$data->status = $status;
+			$data->money = $money;
+			return $data;
+		}
+		return FALSE;
+	}
+
 	public function updateStatusByUid($uid) {
 		$sql = "UPDATE `chivas_info` SET status=1 WHERE `id` = ?"; 
 		$res = $this->db->prepare($sql);
