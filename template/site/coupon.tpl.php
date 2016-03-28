@@ -35,7 +35,7 @@
     </section>
     <section class="pin pin-5">
         <div class="logo">
-            <img src="/images/p3-logo.png" alt=""/>
+            <img src="/images/coupon-logo2.png" alt=""/>
         </div>
         <div class="c-text">
             <img src="/images/c-txt.png" alt=""/>
