@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     //load
     gotoPin(0);
-    _hmt.push(['_trackEvent', 'page', 'click', 'PV-5']);
+    _hmt.push(['_trackEvent', 'page', 'load', 'PV-5']);
 
     //weixin
     $('.weixin').on('click',function(){
@@ -13,7 +13,7 @@ $(document).ready(function(){
     //go to copy taobaokey page
     $('.tmall').on('click',function(){
         _hmt.push(['_trackEvent', 'buttons', 'click', 'TMALL']);
-        _hmt.push(['_trackEvent', 'page', 'click', 'PV-6']);
+        _hmt.push(['_trackEvent', 'page', 'load', 'PV-6']);
         gotoPin(1);
     });
 

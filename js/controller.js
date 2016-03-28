@@ -81,13 +81,16 @@
 
                     //for test
                     //$('.tips-pop').removeClass('hide').addClass('fade animate');
+                    //gotoPin(2);
+                    //self.toMoneyPage();
+
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){
                             //	yes, go to page1
                             $('.tips-pop').addClass('hide');
                             gotoPin(0);
-                            _hmt.push(['_trackEvent', 'page', 'click', 'pv-1']);
+                            _hmt.push(['_trackEvent', 'page', 'load', 'pv-1']);
                         }else{
                             //no,refresh the page
                             window.location.reload();
@@ -98,7 +101,7 @@
                     $('.btn-open').on('click',function(){
                         gotoPin(1);
                         _hmt.push(['_trackEvent', 'buttons', 'click', 'btn-open']);
-                        _hmt.push(['_trackEvent', 'page', 'click', 'pv-2']);
+                        _hmt.push(['_trackEvent', 'page', 'load', 'pv-2']);
                         self.formValidate();
                     });
 
@@ -226,11 +229,12 @@
             self.closePop();
             $('.btn-get').on('click', function(){
                 _hmt.push(['_trackEvent', 'buttons', 'click', 'Redeem']);
-                _hmt.push(['_trackEvent', 'page', 'click', 'PV-4']);
+                _hmt.push(['_trackEvent', 'page', 'load', 'PV-4']);
                $('.qrcode-pop').removeClass('hide').addClass('animate fade');
             });
             $('.btn-share').on('click',function(){
                 _hmt.push(['_trackEvent', 'buttons', 'click', 'Share']);
+                _hmt.push(['_trackEvent', 'page', 'load', 'PV-7']);
                 $('.share-pop').removeClass('hide').addClass('animate fade');
             });
         },
