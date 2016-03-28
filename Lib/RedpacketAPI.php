@@ -12,6 +12,9 @@ class RedpacketAPI extends Base {
         if ($user->status == 1) {
             return false;
         }
+        if ($user->money == 0) {
+            return false;
+        }
 
         $api_url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
         $data = array(

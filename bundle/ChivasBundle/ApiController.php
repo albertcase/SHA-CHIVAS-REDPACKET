@@ -78,12 +78,13 @@ class ApiController extends Controller {
 		if ($DatabaseAPI->loadStatusByUid($user->uid) == 1) {
 			return $this->statusPrint(5, '您已经领过红包了');
 		}
-		$nowMoney = $DatabaseAPI->loadMoney(); 
-		if ($nowMoney >= TOTALMONEY) {
-			return $this->statusPrint(2, '红包已经发完了');
-		}
 		unset($_SESSION['msg_time']);
 		unset($_SESSION['msg_code']);
+		$nowMoney = $DatabaseAPI->loadMoney(); 
+		if ($nowMoney >= TOTALMONEY) {
+			$DatabaseAPI->saveMoney($user->uid, $mobile, 0, NOWTIME);
+			return $this->statusPrint(2, '红包已经发完了');
+		}	
 		//可以领取
 		$rand = rand(1,2);
 		if ($rand == 1) {
