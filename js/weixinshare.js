@@ -12,8 +12,8 @@ $(document).ready(function(){
             }
         });
         wx.onMenuShareAppMessage({
-            title: _unescape('嘘寒问暖，不如现款'),
-            desc: _unescape('拆了这个芝华士红包，感受来自苏格兰的慷慨'),
+            title: '嘘寒问暖，不如现款',
+            desc: '拆了这个芝华士红包，感受来自苏格兰的慷慨',
             link: 'http://extra.chivas.com.cn',
             imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/21926ffe-1764-4fd1-82fd-5ddd151cf0e0?imageView2/1/w/200/h/200/format/jpg/q80/interlace/1',
             type: '',
