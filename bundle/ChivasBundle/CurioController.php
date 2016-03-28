@@ -178,6 +178,10 @@ class CurioController extends Controller {
 		$openid = $_GET['openid'];
 		$user = new \Lib\UserAPI();
 		$user->userLogin($openid);
+		if (isset($_SESSION['redirect_url'])) {
+			$this->redirect($_SESSION['redirect_url']);
+			exit;
+		}
 		$this->redirect('/');
 		exit;
 	}
