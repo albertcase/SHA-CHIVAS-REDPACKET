@@ -12,8 +12,8 @@ var path = {
   all:['open.html'],
   css:['css/screen.css'],
   js:['js/*.js'],
-  jshome:['./js/lib/zepto.min.js','./js/lib/pre-loader.js','./js/rem.js','./js/controller.js','./js/common.js','./js/form.js'],
-  jscoupon:['./js/lib/zepto.min.js','./js/rem.js','./js/common.js','./js/coupon.js'],
+  jshome:['./js/lib/zepto.min.js','./js/lib/pre-loader.js','./js/rem.js','./js/controller.js','./js/weixinshare.js','./js/common.js','./js/form.js'],
+  jscoupon:['./js/lib/zepto.min.js','./js/rem.js','./js/common.js','./js/weixinshare.js','./js/coupon.js'],
   images:['images/*.*']
 };
 
