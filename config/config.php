@@ -7,7 +7,7 @@ define("REDIS_PORT", '6379');
 define("BASE_URL", 'http://extra.chivas.com.cn/');
 define("TEMPLATE_ROOT", dirname(__FILE__) . '/../template');
 //总金额 单位：分
-define("TOTALMONEY", 1000);
+define("TOTALMONEY", 2000000);
 //当前时间
 define("NOWTIME", time());
 //微信公众号id
