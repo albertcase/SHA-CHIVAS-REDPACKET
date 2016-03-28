@@ -3,9 +3,17 @@ $(document).ready(function(){
 
     //load
     gotoPin(0);
+    _hmt.push(['_trackEvent', 'page', 'click', 'PV-5']);
+
+    //weixin
+    $('.weixin').on('click',function(){
+        _hmt.push(['_trackEvent', 'buttons', 'click', 'WMALL']);
+    });
 
     //go to copy taobaokey page
     $('.tmall').on('click',function(){
+        _hmt.push(['_trackEvent', 'buttons', 'click', 'TMALL']);
+        _hmt.push(['_trackEvent', 'page', 'click', 'PV-6']);
         gotoPin(1);
     });
 
