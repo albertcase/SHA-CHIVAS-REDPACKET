@@ -1,4 +1,4 @@
-$(document).ready(function(){
+wx.ready(function() {
     wx.onMenuShareTimeline({
         title: '来自苏格兰的慷(xian)慨(jin)问(hong)候(bao)',
         link: 'http://extra.chivas.com.cn',
@@ -24,4 +24,5 @@ $(document).ready(function(){
         cancel: function () {
         }
     });
+
 });
