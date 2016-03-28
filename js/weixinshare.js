@@ -6,7 +6,6 @@ $(document).ready(function(){
             imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/2120e9e6-5424-41c6-bdc3-7d6db4b3e6b8?imageView2/1/w/200/h/200/format/jpg/q80/interlace/1',
             success: function () {
                 _hmt.push(['_trackEvent', 'buttons', 'click', 'ShareToMoments']);
-                alert('timeline');
             },
             cancel: function () {
             }
@@ -20,7 +19,6 @@ $(document).ready(function(){
             dataUrl: '',
             success: function () {
                 _hmt.push(['_trackEvent', 'buttons', 'click', 'ShareToFriend']);
-                alert('friends');
             },
             cancel: function () {
             }
