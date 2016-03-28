@@ -16,12 +16,8 @@ class SiteController extends Controller {
 	}
 
 	public function couponAction() {	
-		$UserAPI = new \Lib\UserAPI();
-		$user = $UserAPI->userLoad();
-		if ($user) {
-			$this->render('site/coupon', array());
-			exit;
-		}
+		$this->render('site/coupon', array());
+		exit;
 	}
 	
 
