@@ -80,14 +80,14 @@
                     });
 
                     //for test
-                    //gotoPin(2);
-                    //self.toMoneyPage();
+                    //$('.tips-pop').removeClass('hide').addClass('fade animate');
                     //	if your age is above 18
                     $('.btn-tips').on('click',function(e){
                         if($(this).hasClass('btn-tips-yes')){
                             //	yes, go to page1
                             $('.tips-pop').addClass('hide');
                             gotoPin(0);
+                            _hmt.push(['_trackEvent', 'page', 'click', 'pv-1']);
                         }else{
                             //no,refresh the page
                             window.location.reload();
@@ -97,6 +97,8 @@
                     //	open the redpacket
                     $('.btn-open').on('click',function(){
                         gotoPin(1);
+                        _hmt.push(['_trackEvent', 'buttons', 'click', 'btn-open']);
+                        _hmt.push(['_trackEvent', 'page', 'click', 'pv-2']);
                         self.formValidate();
                     });
 
@@ -109,6 +111,7 @@
 
             $('.btn-getkeycode').on('click',function(e){
                 e.preventDefault();
+                _hmt.push(['_trackEvent', 'buttons', 'click', 'sendmessage']);
                 if($('.countdown').length>0) return;
                 if(self.formMobile()){
                     //    start to get keycode
@@ -135,6 +138,7 @@
             });
             var enableSubmit = true;
             $('.pin-2 .btn-submit').on('click',function(){
+                _hmt.push(['_trackEvent', 'buttons', 'click', 'Submit']);
                 //gotoPin(2);
                 if(self.formKeycode()){
                     if(!enableSubmit) return;
@@ -150,13 +154,13 @@
                         data:{mobile:phonenumber,code:keycode},
                         dataType:'json',
                         success:function(data){
-                            console.log(data);
                             //status:1 success,get the money
                             //2.红包领完
                             //other：其他
                             enableSubmit = true;
                             $('.ajaxpop').remove();
                             if(data.status==1){
+                                _hmt.push(['_trackEvent', 'buttons', 'click', 'PV-3']);
                                 //console.log('有红包,金额2.12或者1.88');
                                 if(data.msg==212){
                                     $('.p3-t1 .t2').addClass('money2');
@@ -166,6 +170,7 @@
                                 gotoPin(2);
                             }else if(data.status==6){
                                 //console.log('之前得到红包在半小时内未领取');
+                                _hmt.push(['_trackEvent', 'buttons', 'click', 'PV-3']);
                                 if(data.msg==212){
                                     $('.p3-t1 .t2').addClass('money2');
                                 }else if(data.msg==188){
@@ -174,6 +179,7 @@
                                 gotoPin(2);
                             }else if(data.status==2){
                                 //console.log('红包领完了');
+                                _hmt.push(['_trackEvent', 'buttons', 'click', 'PV-3']);
                                 $('.pin-3').html('');
                                 $('.qrcode-pop').removeClass('hide');
                                 $('.qt-no').removeClass('hide');
@@ -188,6 +194,7 @@
             });
             //show the privacy pop
             $('.privacy-term').on('click',function(){
+                _hmt.push(['_trackEvent', 'buttons', 'click', 'Terms']);
                 $('.term-pop').removeClass('hide').addClass('animate fade');
             });
 
@@ -218,9 +225,12 @@
             //    close the pop
             self.closePop();
             $('.btn-get').on('click', function(){
+                _hmt.push(['_trackEvent', 'buttons', 'click', 'Redeem']);
+                _hmt.push(['_trackEvent', 'page', 'click', 'PV-4']);
                $('.qrcode-pop').removeClass('hide').addClass('animate fade');
             });
             $('.btn-share').on('click',function(){
+                _hmt.push(['_trackEvent', 'buttons', 'click', 'Share']);
                 $('.share-pop').removeClass('hide').addClass('animate fade');
             });
         },
