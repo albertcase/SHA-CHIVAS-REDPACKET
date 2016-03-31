@@ -12,18 +12,18 @@ class RedisAPI {
 	}
 
 	public function islock($openid){
-		if($this->redis->get("chivas:" . $openid)){
+		if($this->_redis->get("chivas:" . $openid)){
 			return true;
 		}
 		return false;	
 	}
 
 	public function lock($openid){
-		$this->redis->set("chivas:" . $openid, 1);
+		$this->_redis->set("chivas:" . $openid, 1);
 		
 	}
 
 	public function unlock($openid){
-		$this->redis->del("chivas:".$openid);
+		$this->_redis->del("chivas:".$openid);
 	}
 }
