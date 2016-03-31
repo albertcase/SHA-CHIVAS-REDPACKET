@@ -4,6 +4,11 @@ namespace Lib;
 class RedpacketAPI extends Base {
 
     public function sendredpack($openid) {
+        $RedisAPI = new \Lib\RedisAPI();
+        if ($RedisAPI->islock($openid)) {
+            return false;
+        }
+        $RedisAPI->lock($openid);
         $DatabaseAPI = new \Lib\DatabaseAPI();
         $user = $DatabaseAPI->findUserForWechat($openid);
         if (!$user) {
@@ -61,7 +66,9 @@ class RedpacketAPI extends Base {
         $return = curl_exec($ch);
         curl_close($ch);
         $DatabaseAPI->updateStatusByUid($user->uid);
-        return $DatabaseAPI->redpacketLog($user->uid, $user->openid, $user->money, $data['mch_billno'], $return);
+        $rs = $DatabaseAPI->redpacketLog($user->uid, $user->openid, $user->money, $data['mch_billno'], $return);
+        $RedisAPI->unlock($openid);
+        return $rs;
     }
 
     private function randstr($num = 6) {
