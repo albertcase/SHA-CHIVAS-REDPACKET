@@ -20,10 +20,10 @@ class RedpacketAPI extends Base {
         if ($user->money == 0) {
             return false;
         }
-        // $log = $DatabaseAPI->findLog($openid);
-        // if ($log) {
-        //     return false;
-        // }
+        $log = $DatabaseAPI->findLog($openid);
+        if ($log) {
+            return false;
+        }
 
         $api_url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
         $data = array(
