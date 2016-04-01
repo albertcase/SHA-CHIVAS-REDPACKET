@@ -202,6 +202,18 @@ class DatabaseAPI extends Base {
 		return NULL;
 	}
 
+	public function findLog($openid) {
+		$sql = "SELECT id FROM `chivas_redpacket_log` WHERE `openid` = ? and `msg` = 'SUCCESS'"; 
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $openid);
+		$res->execute();
+		$res->bind_result($id);
+		if($res->fetch()) {
+			return $id;
+		}
+		return NULL;
+	}
+
 	
 
 }
